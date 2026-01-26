@@ -1,4 +1,8 @@
-const API_URL = import.meta.env.VITE_API_URL || "/api";
+const API_URL = (import.meta.env.VITE_API_URL || "/api").replace(/\/$/, "");
+
+if (import.meta.env.DEV) {
+  console.log("API URL initialized at:", API_URL);
+}
 
 // Helper to get headers with token
 const getHeaders = () => {
@@ -20,9 +24,14 @@ const handleResponse = async (response) => {
   } else {
     // Handle non-JSON response (likely an error page or 404)
     const text = await response.text();
-    console.error("Non-JSON response:", text);
+    console.error("Non-JSON response received:", {
+      status: response.status,
+      statusText: response.statusText,
+      url: response.url,
+      preview: text.substring(0, 200)
+    });
     throw new Error(
-      "Server error: Received non-JSON response. Please check backend server."
+      `Server error (${response.status}): Received non-JSON response. Please check backend server.`
     );
   }
 };

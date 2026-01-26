@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin } from 'lucide-react';
 import { api } from '../../services/api';
 
-export default function SignupPage({ onSignup, onSwitchToLogin }) {
+export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, onShowTerms }) {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -271,11 +271,19 @@ export default function SignupPage({ onSignup, onSwitchToLogin }) {
               />
               <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
                 I agree to the{' '}
-                <button className="text-blue-600 hover:text-blue-700 font-medium">
+                <button 
+                  onClick={onShowTerms}
+                  type="button"
+                  className="text-blue-600 hover:text-blue-700 font-medium"
+                >
                   Terms of Service
                 </button>{' '}
                 and{' '}
-                <button className="text-blue-600 hover:text-blue-700 font-medium">
+                <button 
+                  onClick={onShowPrivacy}
+                  type="button"
+                  className="text-blue-600 hover:text-blue-700 font-medium"
+                >
                   Privacy Policy
                 </button>
               </label>
@@ -304,9 +312,13 @@ export default function SignupPage({ onSignup, onSwitchToLogin }) {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-sm text-gray-500 mt-8">
-          © 2026 DriveDoc. All rights reserved.
-        </p>
+        <div className="text-center text-sm text-gray-500 mt-8">
+          <p>© 2026 DriveDoc. All rights reserved.</p>
+          <div className="mt-2 space-x-4">
+            <button onClick={onShowPrivacy} className="hover:text-blue-600 underline">Privacy Policy</button>
+            <button onClick={onShowTerms} className="hover:text-blue-600 underline">Terms of Service</button>
+          </div>
+        </div>
       </div>
     </div>
   );

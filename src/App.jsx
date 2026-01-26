@@ -11,11 +11,13 @@ import BookingPage from "./components/booking/BookingPage";
 
 import { calculateStatus } from "./utils/documentHelpers";
 import { api } from "./services/api";
+import PrivacyPolicy from "./components/legal/PrivacyPolicy";
+import TermsOfService from "./components/legal/TermsOfService";
 
 export default function App() {
   // Authentication state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [currentAuthPage, setCurrentAuthPage] = useState("login"); // 'login' or 'signup'
+  const [currentAuthPage, setCurrentAuthPage] = useState("login"); // 'login', 'signup', 'privacy', 'terms'
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -161,15 +163,26 @@ export default function App() {
 
   // Show authentication pages if not logged in
   if (!isAuthenticated) {
+    if (currentAuthPage === "privacy") {
+      return <PrivacyPolicy onBack={() => setCurrentAuthPage("login")} />;
+    }
+    if (currentAuthPage === "terms") {
+      return <TermsOfService onBack={() => setCurrentAuthPage("login")} />;
+    }
+
     return currentAuthPage === "login" ? (
       <LoginPage
         onLogin={handleLogin}
         onSwitchToSignup={() => setCurrentAuthPage("signup")}
+        onShowPrivacy={() => setCurrentAuthPage("privacy")}
+        onShowTerms={() => setCurrentAuthPage("terms")}
       />
     ) : (
       <SignupPage
         onSignup={handleSignup}
         onSwitchToLogin={() => setCurrentAuthPage("login")}
+        onShowPrivacy={() => setCurrentAuthPage("privacy")}
+        onShowTerms={() => setCurrentAuthPage("terms")}
       />
     );
   }

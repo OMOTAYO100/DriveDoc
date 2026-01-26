@@ -6,7 +6,7 @@ import { loadScript } from "../../utils/loadScript";
 
 const facebookAppId = import.meta.env.VITE_FACEBOOK_APP_ID;
 
-export default function LoginPage({ onLogin, onSwitchToSignup }) {
+export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, onShowTerms }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -341,9 +341,13 @@ export default function LoginPage({ onLogin, onSwitchToSignup }) {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-sm text-gray-500 mt-8 md:mt-12">
-          © 2026 DriveDoc. All rights reserved.
-        </p>
+        <div className="text-center text-sm text-gray-500 mt-8 md:mt-12">
+          <p>© 2026 DriveDoc. All rights reserved.</p>
+          <div className="mt-2 space-x-4">
+            <button onClick={onShowPrivacy} className="hover:text-blue-600 underline">Privacy Policy</button>
+            <button onClick={onShowTerms} className="hover:text-blue-600 underline">Terms of Service</button>
+          </div>
+        </div>
       </div>
     </section>
   );
