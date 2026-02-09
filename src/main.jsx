@@ -36,7 +36,11 @@ const registerPush = async () => {
   const reg = await navigator.serviceWorker.register("/sw.js");
   const r = await fetch("/api/notifications/public-key");
   const { publicKey } = await r.json();
-  const key = publicKey ? urlBase64ToUint8Array(publicKey) : null;
+  if (!publicKey) {
+    console.log("No VAPID public key found, skipping push registration.");
+    return false;
+  }
+  const key = urlBase64ToUint8Array(publicKey);
   const sub = await reg.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: key,
