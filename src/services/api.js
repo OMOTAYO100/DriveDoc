@@ -15,20 +15,36 @@ const getHeaders = () => {
 
 const handleResponse = async (response) => {
   const contentType = response.headers.get("content-type");
-  if (contentType && contentType.includes("application/json")) {
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(data.message || data.error || "Request failed");
+  const isJson = contentType && contentType.includes("application/json");
+
+  // Get raw text first for robust handling of empty/malformed responses
+  const text = await response.text();
+
+  if (isJson) {
+    if (!text || text.trim() === "") {
+      if (!response.ok) {
+        throw new Error(`Server error (${response.status}): Empty response received.`);
+      }
+      return {}; // Success with empty body
     }
-    return data;
+
+    try {
+      const data = JSON.parse(text);
+      if (!response.ok) {
+        throw new Error(data.message || data.error || "Request failed");
+      }
+      return data;
+    } catch (e) {
+      console.error("Failed to parse JSON response:", text);
+      throw new Error(`Invalid JSON response from server (${response.status})`);
+    }
   } else {
     // Handle non-JSON response (likely an error page or 404)
-    const text = await response.text();
     console.error("Non-JSON response received:", {
       status: response.status,
       statusText: response.statusText,
       url: response.url,
-      preview: text.substring(0, 200)
+      preview: text.substring(0, 200),
     });
     throw new Error(
       `Server error (${response.status}): Received non-JSON response. Please check backend server.`

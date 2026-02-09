@@ -3,6 +3,8 @@ import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/auth/LoginPage";
 import SignupPage from "./components/auth/SignupPage";
 import { api } from "./services/api";
+import PrivacyPolicy from "./components/legal/PrivacyPolicy";
+import TermsOfService from "./components/legal/TermsOfService";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -58,18 +60,26 @@ export default function App() {
         <SignupPage
           onSignup={handleAuthSuccess}
           onSwitchToLogin={() => setCurrentAuthPage("login")}
-          onShowPrivacy={() => {}}
-          onShowTerms={() => {}}
+          onShowPrivacy={() => setCurrentAuthPage("privacy")}
+          onShowTerms={() => setCurrentAuthPage("terms")}
         />
       );
+    }
+
+    if (currentAuthPage === "privacy") {
+      return <PrivacyPolicy onBack={() => setCurrentAuthPage("login")} />;
+    }
+
+    if (currentAuthPage === "terms") {
+      return <TermsOfService onBack={() => setCurrentAuthPage("login")} />;
     }
 
     return (
       <LoginPage
         onLogin={handleAuthSuccess}
         onSwitchToSignup={() => setCurrentAuthPage("signup")}
-        onShowPrivacy={() => {}}
-        onShowTerms={() => {}}
+        onShowPrivacy={() => setCurrentAuthPage("privacy")}
+        onShowTerms={() => setCurrentAuthPage("terms")}
       />
     );
   }
