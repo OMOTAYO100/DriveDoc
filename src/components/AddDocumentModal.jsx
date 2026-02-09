@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { ALL_COUNTRIES, getDocumentsForCountry } from '../utils/countryData';
+import { Camera, Loader2, Upload } from 'lucide-react';
+import { scanDocument } from '../utils/ocr';
 
 export default function AddDocumentModal({ isOpen, onClose, onAdd }) {
   const [formData, setFormData] = useState({
@@ -10,9 +12,32 @@ export default function AddDocumentModal({ isOpen, onClose, onAdd }) {
     issueDate: '',
     expiryDate: ''
   });
+  const [isScanning, setIsScanning] = useState(false);
+  const fileInputRef = useRef(null);
 
   const availableDocumentTypes = getDocumentsForCountry(formData.country);
   const isCustomType = formData.type === 'Other';
+
+  const handleScan = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsScanning(true);
+    try {
+      const details = await scanDocument(file);
+      setFormData(prev => ({
+        ...prev,
+        number: details.number || prev.number,
+        expiryDate: details.expiryDate || prev.expiryDate
+      }));
+    } catch (error) {
+      console.error('Scanning failed:', error);
+      alert('Could not extract details from document. Please enter them manually.');
+    } finally {
+      setIsScanning(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
 
   const handleSubmit = () => {
     // Validate custom type if selected
@@ -45,12 +70,31 @@ export default function AddDocumentModal({ isOpen, onClose, onAdd }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
-        <div className="px-6 py-4 border-b border-gray-200">
+      <div className="bg-white rounded-lg shadow-xl max-w-md w-full overflow-hidden">
+        <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-900">Add New Document</h3>
+          <button 
+            onClick={() => fileInputRef.current?.click()}
+            disabled={isScanning}
+            className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 disabled:opacity-50"
+          >
+            {isScanning ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              <Camera className="w-4 h-4" />
+            )}
+            {isScanning ? 'Scanning...' : 'Scan Doc'}
+          </button>
+          <input 
+            type="file"
+            ref={fileInputRef}
+            onChange={handleScan}
+            accept="image/*"
+            className="hidden"
+          />
         </div>
 
-        <div className="p-6 space-y-4">
+        <div className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
           {/* Country dropdown */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">

@@ -6,6 +6,10 @@ import App from "./App.jsx";
 
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
+if (import.meta.env.DEV) {
+  console.log("Google Client ID status:", googleClientId ? `Loaded (${googleClientId.substring(0, 10)}...)` : "MISSING");
+}
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <GoogleOAuthProvider clientId={googleClientId || "missing-client-id"}>
