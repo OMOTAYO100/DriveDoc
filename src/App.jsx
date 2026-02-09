@@ -123,8 +123,8 @@ export default function App() {
   const handleAddDocument = async (docData) => {
     try {
       const res = await api.addDocument(docData);
-      if (res.success) {
-        setDocuments([...documents, res.data]);
+      if (res.success && res.document) {
+        setDocuments(prev => [res.document, ...prev]);
         setIsAddModalOpen(false);
       }
     } catch (error) {

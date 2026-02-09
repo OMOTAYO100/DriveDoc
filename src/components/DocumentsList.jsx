@@ -33,7 +33,7 @@ export default function DocumentsList({ documents, onDelete, onAddDocument }) {
       </div>
       <div className="divide-y divide-gray-200">
         {documents.map((doc) => (
-          <DocumentCard key={doc.id} document={doc} onDelete={onDelete} />
+          <DocumentCard key={doc._id} document={doc} onDelete={onDelete} />
         ))}
       </div>
     </div>
