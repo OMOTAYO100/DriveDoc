@@ -4,11 +4,11 @@ import LoginPage from "./components/auth/LoginPage";
 import SignupPage from "./components/auth/SignupPage";
 import { api } from "./services/api";
 import PrivacyPolicy from "./components/legal/PrivacyPolicy";
-import TermsOfService from "./components/legal/TermsOfService";
 import Header from "./components/Header";
 import StatsGrid from "./components/StatsGrid";
 import DocumentsList from "./components/DocumentsList";
-import CategorySelection from "./components/CategorySelection";
+// import CategorySelection from "./components/CategorySelection"; // Removed to avoid prop mismatch crash
+import { CATEGORIES } from "./utils/categoryMapping";
 import TestContainer from "./components/TestContainer";
 import BookingPage from "./components/booking/BookingPage";
 import AddDocumentModal from "./components/AddDocumentModal";
@@ -200,12 +200,35 @@ export default function App() {
                   <p className="text-gray-600 text-sm">
                     Select a category to start practicing for your driving theory test.
                   </p>
-                  <CategorySelection
-                    onSelect={(category) => {
-                      setSelectedCategory(category);
-                      setCurrentView("test");
-                    }}
-                  />
+                  <div className="grid grid-cols-1 gap-2 max-h-96 overflow-y-auto pr-2">
+                    {CATEGORIES.map((cat) => {
+                      const Icon = cat.icon;
+                      return (
+                        <button
+                          key={cat.id}
+                          onClick={() => {
+                            setSelectedCategory(cat.label);
+                            setCurrentView("test");
+                          }}
+                          className="flex items-center gap-3 p-3 w-full text-left border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+                        >
+                          <div className="p-2 bg-blue-50 text-blue-600 rounded-md">
+                            <Icon className="w-5 h-5" />
+                          </div>
+                          <span className="font-medium text-gray-700">{cat.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <button
+                    onClick={() => {
+                        setSelectedCategory(null); // All
+                        setCurrentView("test");
+                    }} 
+                    className="w-full mt-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium"
+                  >
+                    Start Full Practice Test
+                  </button>
                 </div>
               </div>
             </div>
