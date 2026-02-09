@@ -40,15 +40,21 @@ export default function App() {
     }
 
     try {
+      console.log("Verifying session...");
       const data = await api.getMe();
+      console.log("Session verified, user:", data.user);
       setUser(data.user);
       setIsAuthenticated(true);
       fetchDocuments();
     } catch (err) {
-      if (!err.message?.includes("401")) {
-        console.error("Session check failed:", err);
+      console.error("Session check failed:", err);
+      // Only logout if token is explicitly invalid (401)
+      if (err.message?.includes("401") || err.message?.includes("Invalid token") || err.message?.includes("jwt expired")) {
+        console.log("Token invalid, logging out.");
+        localStorage.removeItem("token");
       }
-      localStorage.removeItem("token");
+      // If it's a network error, we don't remove the token, but we can't authenticate the user yet.
+      // They will see the Landing Page, which is expected behavior if backend is unreachable.
     } finally {
       setIsLoading(false);
     }
@@ -176,6 +182,7 @@ export default function App() {
         onStartTest={() => setCurrentView("test")}
         onBookLesson={() => setCurrentView("booking")}
         onRenewDocuments={() => alert("Renewal feature is currently disabled.")}
+        onLogout={handleLogout}
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

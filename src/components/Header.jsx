@@ -9,6 +9,7 @@ export default function Header({
   onStartTest,
   onBookLesson,
   onRenewDocuments,
+  onLogout,
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -52,6 +53,13 @@ export default function Header({
         >
           <Plus className="w-4 h-4" />
           Add Document
+        </button>
+        
+        <button
+            onClick={() => handleClick(onLogout)}
+            className="w-full sm:w-auto px-4 py-2 border border-red-200 text-red-600 rounded-lg hover:bg-red-50 transition font-medium"
+        >
+            Sign Out
         </button>
       </div>
     );
