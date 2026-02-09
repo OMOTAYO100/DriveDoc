@@ -5,11 +5,11 @@ import CategorySelection from "./CategorySelection";
 import testData from "../testData.json";
 import { getDisplayCategory, CATEGORIES } from "../utils/categoryMapping";
 
-export default function TestContainer({ onExit }) {
+export default function TestContainer({ initialCategory, onExit, onComplete }) {
   const [view, setView] = useState("selection"); // 'selection', 'test', 'result'
   const [selectedCategories, setSelectedCategories] = useState([]);
   
-  // Progress State: { "Category Name": { total: 0, answered: 0, correct: 0 } }
+  // Progress State
   const [progress, setProgress] = useState({});
 
   // Questions State
@@ -20,33 +20,78 @@ export default function TestContainer({ onExit }) {
 
   // Initialize Data
   useEffect(() => {
-    // 1. Map all questions to new categories
-    const allMapped = testData.questions.map(q => ({
-      ...q,
-      displayCategory: getDisplayCategory(q.category)
-    }));
-    setMappedQuestions(allMapped);
+    // 1. Map and deduplicate questions
+    const seen = new Set();
+    const uniqueQuestions = [];
+    
+    testData.questions.forEach(q => {
+      // Deduplicate by ID and Text (to be sure)
+      const cleanText = q.text.trim().toLowerCase();
+      if (!seen.has(q.id) && !seen.has(cleanText)) {
+        seen.add(q.id);
+        seen.add(cleanText);
+        uniqueQuestions.push({
+          ...q,
+          displayCategory: getDisplayCategory(q.category)
+        });
+      }
+    });
 
-    // 2. Load progress from localStorage
+    setMappedQuestions(uniqueQuestions);
+
+    // 2. Load progress
     const savedProgress = localStorage.getItem("theoryProgress");
-    let initialProgress = {};
-
+    let initialProg = {};
     if (savedProgress) {
-        initialProgress = JSON.parse(savedProgress);
+        try {
+            initialProg = JSON.parse(savedProgress);
+        } catch (e) {
+            console.error("Failed to parse saved progress", e);
+        }
     }
 
-    // 3. Ensure all categories exist in progress and update totals
-    const newProgress = { ...initialProgress };
+    // 3. Update totals
+    const newProgress = { ...initialProg };
     CATEGORIES.forEach(cat => {
         if (!newProgress[cat.label]) {
             newProgress[cat.label] = { total: 0, answered: 0, correct: 0 };
         }
-        // Recalculate total based on current data (in case data changed)
-        newProgress[cat.label].total = allMapped.filter(q => q.displayCategory === cat.label).length;
+        newProgress[cat.label].total = uniqueQuestions.filter(q => q.displayCategory === cat.label).length;
     });
 
     setProgress(newProgress);
-  }, []);
+
+    // 4. Handle initial category selection
+    if (initialCategory) {
+        const pool = uniqueQuestions.filter(q => q.displayCategory === initialCategory);
+        if (pool.length > 0) {
+            startTestWithPool(pool);
+        } else {
+            setSelectedCategories([initialCategory]);
+        }
+    }
+  }, [initialCategory]);
+
+  const startTestWithPool = (pool) => {
+    // Shuffle
+    const shuffled = [...pool];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    const count = Math.min(50, shuffled.length);
+    setActiveQuestions(shuffled.slice(0, count));
+    setCurrent(0);
+    setScore(0);
+    setView("test");
+  };
+
+  const startManualTest = () => {
+    const pool = mappedQuestions.filter(q => selectedCategories.includes(q.displayCategory));
+    if (pool.length === 0) return;
+    startTestWithPool(pool);
+  };
 
   // Save progress whenever it changes
   useEffect(() => {
@@ -69,23 +114,6 @@ export default function TestContainer({ onExit }) {
     } else {
         setSelectedCategories(CATEGORIES.map(c => c.label));
     }
-  };
-
-  const startTest = () => {
-    const pool = mappedQuestions.filter(q => selectedCategories.includes(q.displayCategory));
-    
-    // Shuffle
-    for (let i = pool.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [pool[i], pool[j]] = [pool[j], pool[i]];
-    }
-
-    // Limit to 50 or length
-    const count = Math.min(50, pool.length);
-    setActiveQuestions(pool.slice(0, count));
-    setCurrent(0);
-    setScore(0);
-    setView("test");
   };
 
   const handleAnswer = (key) => {
@@ -139,7 +167,7 @@ export default function TestContainer({ onExit }) {
                 selected={selectedCategories}
                 onToggle={toggleCategory}
                 onSelectAll={toggleAll}
-                onStart={startTest}
+                onStart={startManualTest}
              />
         </React.Fragment>
     );

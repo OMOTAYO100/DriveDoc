@@ -84,15 +84,25 @@ export default function App() {
   };
 
   const handleToggleNotifications = async () => {
-    if (notificationsEnabled) {
-      if (window.optOutNotifications) await window.optOutNotifications();
-      setNotificationsEnabled(false);
-    } else {
-      if (window.registerPush) {
-        const success = await window.registerPush();
-        if (success) setNotificationsEnabled(true);
-        else if (Notification.permission === "denied") setNotificationsDenied(true);
-      }
+    try {
+        if (notificationsEnabled) {
+            if (window.optOutNotifications) {
+                await window.optOutNotifications();
+                setNotificationsEnabled(false);
+            }
+        } else {
+            if (window.registerPush) {
+                const success = await window.registerPush();
+                if (success) {
+                    setNotificationsEnabled(true);
+                    setNotificationsDenied(false);
+                } else if (Notification.permission === "denied") {
+                    setNotificationsDenied(true);
+                }
+            }
+        }
+    } catch (err) {
+        console.error("Notification toggle failed:", err);
     }
   };
 
@@ -247,9 +257,12 @@ export default function App() {
 
         {currentView === "test" && (
           <TestContainer
-            category={selectedCategory}
+            initialCategory={selectedCategory}
             onComplete={() => setCurrentView("dashboard")}
-            onBack={() => setCurrentView("dashboard")}
+            onExit={() => {
+                setSelectedCategory(null);
+                setCurrentView("dashboard");
+            }}
           />
         )}
         

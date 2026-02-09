@@ -43,16 +43,24 @@ export default function QuestionCard({ question, onAnswer }) {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {question.options.map((opt) => (
-          <button
-            key={opt.key}
-            onClick={() => onAnswer(opt.key)}
-            className="text-left px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
-          >
-            <span className="font-semibold mr-2">{opt.key}.</span>
-            <span>{opt.text}</span>
-          </button>
-        ))}
+        {(() => {
+          const seenOptions = new Set();
+          return question.options.filter(opt => {
+            const cleanOpt = opt.text.trim().toLowerCase();
+            if (seenOptions.has(cleanOpt)) return false;
+            seenOptions.add(cleanOpt);
+            return true;
+          }).map((opt) => (
+            <button
+              key={opt.key}
+              onClick={() => onAnswer(opt.key)}
+              className="text-left px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+            >
+              <span className="font-semibold mr-2">{opt.key}.</span>
+              <span>{opt.text}</span>
+            </button>
+          ));
+        })()}
       </div>
       <div className="mt-4 text-sm text-gray-500">
         Time remaining for this question

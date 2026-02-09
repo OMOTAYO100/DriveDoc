@@ -13,7 +13,7 @@ const getHeaders = () => {
   };
 };
 
-const handleResponse = async (response) => {
+const handleResponse = async (response, url) => {
   const contentType = response.headers.get("content-type");
   const isJson = contentType && contentType.includes("application/json");
 
@@ -23,7 +23,7 @@ const handleResponse = async (response) => {
   if (isJson) {
     if (!text || text.trim() === "") {
       if (!response.ok) {
-        throw new Error(`Server error (${response.status}): Empty response received.`);
+        throw new Error(`Server error (${response.status}): Empty response received from ${url}.`);
       }
       return {}; // Success with empty body
     }
@@ -31,11 +31,11 @@ const handleResponse = async (response) => {
     try {
       const data = JSON.parse(text);
       if (!response.ok) {
-        throw new Error(data.message || data.error || "Request failed");
+        throw new Error(data.message || data.error || `Request failed (${response.status})`);
       }
       return data;
     } catch (e) {
-      console.error("Failed to parse JSON response:", text);
+      console.error(`Failed to parse JSON response from ${url}:`, text);
       throw new Error(`Invalid JSON response from server (${response.status})`);
     }
   } else {
@@ -47,22 +47,34 @@ const handleResponse = async (response) => {
       preview: text.substring(0, 200),
     });
     throw new Error(
-      `Server error (${response.status}): Received non-JSON response. Please check backend server.`
+      `Server error (${response.status}): Received non-JSON response from ${url}. Please check backend server.`
     );
   }
+};
+
+const safeFetch = async (url, options) => {
+    try {
+        const response = await fetch(url, options);
+        return await handleResponse(response, url);
+    } catch (error) {
+        if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+            console.error('NETWORK ERROR: Failed to fetch', url);
+            throw new Error(`Failed to Fetch: Please check your internet connection or if the backend server (${url}) is reachable and CORS is correctly configured.`);
+        }
+        throw error;
+    }
 };
 
 export const api = {
   // Auth
   signup: async (userData) => {
     try {
-      const response = await fetch(`${API_URL}/auth/signup`, {
+      const data = await safeFetch(`${API_URL}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // Enable cookies
         body: JSON.stringify(userData),
       });
-      const data = await handleResponse(response);
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
@@ -75,13 +87,12 @@ export const api = {
 
   login: async (credentials) => {
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
+      const data = await safeFetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // Enable cookies
         body: JSON.stringify(credentials),
       });
-      const data = await handleResponse(response);
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
@@ -93,13 +104,12 @@ export const api = {
   },
   oauthGoogle: async (accessToken) => {
     try {
-      const response = await fetch(`${API_URL}/auth/oauth/google`, {
+      const data = await safeFetch(`${API_URL}/auth/oauth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // Enable cookies
         body: JSON.stringify({ accessToken }),
       });
-      const data = await handleResponse(response);
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
@@ -111,13 +121,12 @@ export const api = {
   },
   oauthFacebook: async (accessToken) => {
     try {
-      const response = await fetch(`${API_URL}/auth/oauth/facebook`, {
+      const data = await safeFetch(`${API_URL}/auth/oauth/facebook`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // Enable cookies
         body: JSON.stringify({ accessToken }),
       });
-      const data = await handleResponse(response);
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
@@ -129,88 +138,79 @@ export const api = {
   },
 
   getMe: async () => {
-    const response = await fetch(`${API_URL}/auth/me`, {
+    return safeFetch(`${API_URL}/auth/me`, {
       headers: getHeaders(),
       credentials: "include", // Enable cookies
     });
-    return handleResponse(response);
   },
 
   // Documents
   getDocuments: async () => {
-    const response = await fetch(`${API_URL}/documents`, {
+    return safeFetch(`${API_URL}/documents`, {
       headers: getHeaders(),
       credentials: "include", // Enable cookies
     });
-    return handleResponse(response);
   },
 
   addDocument: async (docData) => {
-    const response = await fetch(`${API_URL}/documents`, {
+    return safeFetch(`${API_URL}/documents`, {
       method: "POST",
       headers: getHeaders(),
       credentials: "include", // Enable cookies
       body: JSON.stringify(docData),
     });
-    return handleResponse(response);
   },
 
   updateDocument: async (id, docData) => {
-    const response = await fetch(`${API_URL}/documents/${id}`, {
+    return safeFetch(`${API_URL}/documents/${id}`, {
       method: "PUT",
       headers: getHeaders(),
       credentials: "include", // Enable cookies
       body: JSON.stringify(docData),
     });
-    return handleResponse(response);
   },
 
   deleteDocument: async (id) => {
-    const response = await fetch(`${API_URL}/documents/${id}`, {
+    return safeFetch(`${API_URL}/documents/${id}`, {
       method: "DELETE",
       headers: getHeaders(),
       credentials: "include", // Enable cookies
     });
-    return handleResponse(response);
   },
 
   // Bookings
   getMyBookings: async () => {
-    const response = await fetch(`${API_URL}/bookings`, {
+    return safeFetch(`${API_URL}/bookings`, {
       headers: getHeaders(),
       credentials: "include", // Enable cookies
     });
-    return handleResponse(response);
   },
 
   createBooking: async (bookingData) => {
-    const response = await fetch(`${API_URL}/bookings`, {
+    return safeFetch(`${API_URL}/bookings`, {
       method: "POST",
       headers: getHeaders(),
       credentials: "include", // Enable cookies
       body: JSON.stringify(bookingData),
     });
-    return handleResponse(response);
   },
 
   cancelBooking: async (id) => {
-    const response = await fetch(`${API_URL}/bookings/${id}/cancel`, {
+    return safeFetch(`${API_URL}/bookings/${id}/cancel`, {
       method: "PUT", // Using PUT as defined in controller
       headers: getHeaders(),
       credentials: "include", // Enable cookies
     });
-    return handleResponse(response);
   },
 
   // Payments (Paystack)
   verifyPayment: async (data) => {
-    const response = await fetch(`${API_URL}/payments/verify`, {
+    return safeFetch(`${API_URL}/payments/verify`, {
       method: "POST",
       headers: getHeaders(),
       credentials: "include", // Enable cookies
       body: JSON.stringify(data),
     });
-    return handleResponse(response);
   },
 
   logout: () => {
