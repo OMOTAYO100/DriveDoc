@@ -63,11 +63,14 @@ export default function App() {
   const fetchDocuments = async () => {
     try {
       const data = await api.getDocuments();
-      if (data.success) {
+      if (data.success && Array.isArray(data.data)) {
         setDocuments(data.data);
+      } else {
+        setDocuments([]);
       }
     } catch (error) {
       console.error("Failed to fetch documents:", error);
+      setDocuments([]);
     }
   };
 

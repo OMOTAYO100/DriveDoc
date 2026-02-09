@@ -2,6 +2,10 @@ import { FileText } from 'lucide-react';
 import DocumentCard from './DocumentCard';
 
 export default function DocumentsList({ documents, onDelete, onAddDocument }) {
+  if (!documents || !Array.isArray(documents)) {
+    return null;
+  }
+
   if (documents.length === 0) {
     return (
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">

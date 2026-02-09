@@ -3,6 +3,8 @@ import StatsCard from './StatsCard';
 import { calculateStatus } from '../utils/documentHelpers';
 
 export default function StatsGrid({ documents }) {
+  if (!documents || !Array.isArray(documents)) return null;
+
   const stats = {
     total: documents.length,
     expired: documents.filter(d => calculateStatus(d.expiryDate) === 'expired').length,
