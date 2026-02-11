@@ -70,8 +70,8 @@ export default function App() {
   const fetchDocuments = async () => {
     try {
       const data = await api.getDocuments();
-      if (data.success && Array.isArray(data.data)) {
-        setDocuments(data.data);
+      if (data.success && Array.isArray(data.documents)) {
+        setDocuments(data.documents);
       } else {
         setDocuments([]);
       }
@@ -212,6 +212,7 @@ export default function App() {
         onBookLesson={() => setCurrentView("booking")}
         onRenewDocuments={() => alert("Renewal feature is currently disabled.")}
         onLogout={handleLogout}
+        user={user}
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

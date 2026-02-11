@@ -10,6 +10,7 @@ export default function Header({
   onBookLesson,
   onRenewDocuments,
   onLogout,
+  user,
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -72,7 +73,9 @@ export default function Header({
           <div>
             <h1 className="text-2xl font-bold text-gray-900">DriveDoc</h1>
             <p className="text-sm text-gray-600">
-              Your Driving Document Manager
+              {user?.fullName 
+                ? `Welcome back, ${user.fullName.split(' ')[0]}!` 
+                : "Your Driving Document Manager"}
             </p>
           </div>
           
