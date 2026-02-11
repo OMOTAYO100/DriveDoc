@@ -17,6 +17,10 @@ export const registerPush = async () => {
   }
     
   try {
+    if (!("Notification" in window)) {
+        throw new Error("Notification API not found. On iOS, please 'Add to Home Screen' first.");
+    }
+
     const permission = await Notification.requestPermission();
     if (permission !== "granted") {
         throw new Error("Notification permission denied.");

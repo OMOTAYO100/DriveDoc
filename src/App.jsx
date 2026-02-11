@@ -91,17 +91,20 @@ export default function App() {
     }
   };
 
+  // Initial check for browser support and block status
   const checkNotificationPermission = () => {
-    if (!("Notification" in window)) return;
-    
-    const isLocalEnabled = localStorage.getItem("notifications_enabled") === "true";
-    
-    if (Notification.permission === "granted") {
-      setNotificationsEnabled(isLocalEnabled);
-    } else if (Notification.permission === "denied") {
-      setNotificationsDenied(true);
-      setNotificationsEnabled(false);
-    }
+      if (!("Notification" in window)) {
+          console.warn("This browser does not support notifications.");
+          return;
+      }
+      if (Notification.permission === "denied") {
+          setNotificationsDenied(true);
+      }
+      // Sync state with local storage
+      const saved = localStorage.getItem("notifications_enabled");
+      if (saved === "true" && Notification.permission === "granted") {
+          setNotificationsEnabled(true);
+      }
   };
 
     const handleToggleNotifications = async () => {
@@ -121,7 +124,13 @@ export default function App() {
             console.log("Notifications disabled locally.");
         } else {
             console.log("Enabling notifications...");
-            // Check browser permission first
+            // Check browser support
+            if (!("Notification" in window)) {
+               alert("Your browser does not support notifications. On iPhone, you must use 'Add to Home Screen' to enable this feature.");
+               return;
+            }
+
+            // Check browser permission next
             if (Notification.permission === "denied") {
                 console.warn("Permission denied by browser.");
                 setNotificationsDenied(true);
