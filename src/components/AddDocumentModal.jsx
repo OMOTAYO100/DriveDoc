@@ -76,7 +76,7 @@ export default function AddDocumentModal({ isOpen, onClose, onAdd }) {
           <button 
             onClick={() => fileInputRef.current?.click()}
             disabled={isScanning}
-            className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 disabled:opacity-50"
+            className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 disabled:opacity-50 cursor-pointer"
           >
             {isScanning ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -103,7 +103,7 @@ export default function AddDocumentModal({ isOpen, onClose, onAdd }) {
             <select
               value={formData.country}
               onChange={handleCountryChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
             >
               <option value="">Select country</option>
               {ALL_COUNTRIES.map(country => (
@@ -120,7 +120,7 @@ export default function AddDocumentModal({ isOpen, onClose, onAdd }) {
             <select
               value={formData.type}
               onChange={(e) => setFormData({...formData, type: e.target.value})}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
               disabled={!formData.country}
             >
               <option value="">
@@ -188,13 +188,13 @@ export default function AddDocumentModal({ isOpen, onClose, onAdd }) {
           <div className="flex gap-3 pt-4">
             <button
               onClick={handleCancel}
-              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition"
+              className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition cursor-pointer"
             >
               Cancel
             </button>
             <button
               onClick={handleSubmit}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition cursor-pointer"
             >
               Add Document
             </button>

@@ -83,26 +83,41 @@ export default function App() {
 
   const checkNotificationPermission = () => {
     if (!("Notification" in window)) return;
+    
+    const isLocalEnabled = localStorage.getItem("notifications_enabled") === "true";
+    
     if (Notification.permission === "granted") {
-      setNotificationsEnabled(true);
+      setNotificationsEnabled(isLocalEnabled);
     } else if (Notification.permission === "denied") {
       setNotificationsDenied(true);
+      setNotificationsEnabled(false);
     }
   };
 
   const handleToggleNotifications = async () => {
     try {
         if (notificationsEnabled) {
-            if (window.optOutNotifications) {
-                await window.optOutNotifications();
-                setNotificationsEnabled(false);
+            // Opt out in app state/local storage
+            const sub = JSON.parse(localStorage.getItem("pushSubscription") || "{}");
+            if (sub.endpoint) {
+                await api.optOutNotifications(sub.endpoint);
             }
+            setNotificationsEnabled(false);
+            localStorage.setItem("notifications_enabled", "false");
         } else {
+            // Check browser permission first
+            if (Notification.permission === "denied") {
+                setNotificationsDenied(true);
+                return;
+            }
+
+            // Register or Opt In
             if (window.registerPush) {
-                const success = await window.registerPush();
-                if (success) {
+                const sub = await window.registerPush();
+                if (sub) {
                     setNotificationsEnabled(true);
                     setNotificationsDenied(false);
+                    localStorage.setItem("notifications_enabled", "true");
                 } else if (Notification.permission === "denied") {
                     setNotificationsDenied(true);
                 }

@@ -13,7 +13,7 @@ export default function LandingPage({ onGetStarted }) {
         </div>
         <button
           onClick={onGetStarted}
-          className="text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors"
+          className="text-sm font-semibold text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
         >
           Sign In
         </button>
@@ -38,13 +38,13 @@ export default function LandingPage({ onGetStarted }) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onGetStarted}
-              className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-blue-600 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-700 w-full sm:w-auto shadow-xl"
+              className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-blue-600 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 hover:bg-blue-700 w-full sm:w-auto shadow-xl cursor-pointer"
             >
               Get Started for Free
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              className="px-8 py-4 font-bold text-gray-900 transition-all duration-200 bg-transparent border-2 border-gray-200 rounded-xl hover:bg-gray-50 focus:outline-none w-full sm:w-auto"
+              className="px-8 py-4 font-bold text-gray-900 transition-all duration-200 bg-transparent border-2 border-gray-200 rounded-xl hover:bg-gray-50 focus:outline-none w-full sm:w-auto cursor-pointer"
             >
               How it works
             </button>
@@ -84,8 +84,8 @@ export default function LandingPage({ onGetStarted }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-sm">© 2026 DriveDoc. All rights reserved.</p>
           <div className="flex gap-8">
-            <a href="#" className="text-sm text-gray-500 hover:text-blue-600">Privacy Policy</a>
-            <a href="#" className="text-sm text-gray-500 hover:text-blue-600">Terms of Service</a>
+            <a href="#" className="text-sm text-gray-500 hover:text-blue-600 cursor-pointer">Privacy Policy</a>
+            <a href="#" className="text-sm text-gray-500 hover:text-blue-600 cursor-pointer">Terms of Service</a>
           </div>
         </div>
       </footer>

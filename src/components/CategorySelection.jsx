@@ -17,7 +17,7 @@ export default function CategorySelection({ progress, selected, onToggle, onSele
             <button
             onClick={onStart}
             disabled={selected.length === 0}
-            className={`px-6 py-2 rounded-full font-bold transition ${selected.length > 0 ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
+            className={`px-6 py-2 rounded-full font-bold transition cursor-pointer ${selected.length > 0 ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
             >
             CONTINUE
             </button>
@@ -108,7 +108,7 @@ export default function CategorySelection({ progress, selected, onToggle, onSele
          <button
             onClick={onStart}
             disabled={selected.length === 0}
-            className={`w-full max-w-md py-3 rounded-full font-bold text-lg shadow-lg transition transform active:scale-95 ${selected.length > 0 ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
+            className={`w-full max-w-md py-3 rounded-full font-bold text-lg shadow-lg transition transform active:scale-95 cursor-pointer ${selected.length > 0 ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
          >
             CONTINUE
          </button>

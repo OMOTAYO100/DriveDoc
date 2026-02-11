@@ -209,7 +209,7 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -227,16 +227,16 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
 
             {/* Remember Me & Forgot Password */}
             <div className="flex items-center justify-between">
-              <label className="flex items-center">
+              <label className="flex items-center cursor-pointer">
                 <input
                   type="checkbox"
-                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
                 />
                 <span className="ml-2 text-sm text-gray-600">
                   Remember me
                 </span>
               </label>
-              <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+              <button className="text-sm text-blue-600 hover:text-blue-700 font-medium cursor-pointer">
                 Forgot password?
               </button>
             </div>
@@ -245,7 +245,7 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
             <button
               onClick={handleSubmit}
               disabled={isLoading}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
               {isLoading ? "Signing in..." : "Sign In"}
             </button>
@@ -267,7 +267,7 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
               <button
                 onClick={() => googleLogin()}
                 disabled={isLoading}
-                className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path
@@ -294,7 +294,7 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
               <button
                 onClick={handleFacebookLogin}
                 disabled={isLoading}
-                className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 <svg className="w-5 h-5" fill="#1877F2" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -311,7 +311,7 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
             Don't have an account?{" "}
             <button
               onClick={onSwitchToSignup}
-              className="text-blue-600 hover:text-blue-700 font-semibold"
+              className="text-blue-600 hover:text-blue-700 font-semibold cursor-pointer"
             >
               Sign up
             </button>
@@ -322,8 +322,8 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
         <div className="text-center text-sm text-gray-500 mt-8">
           <p>© 2026 DriveDoc. All rights reserved.</p>
           <div className="mt-2 space-x-4">
-            <button onClick={onShowPrivacy} className="hover:text-blue-600 underline text-xs">Privacy Policy</button>
-            <button onClick={onShowTerms} className="hover:text-blue-600 underline text-xs">Terms of Service</button>
+            <button onClick={onShowPrivacy} className="hover:text-blue-600 underline text-xs cursor-pointer">Privacy Policy</button>
+            <button onClick={onShowTerms} className="hover:text-blue-600 underline text-xs cursor-pointer">Terms of Service</button>
           </div>
         </div>
       </div>

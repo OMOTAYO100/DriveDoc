@@ -23,33 +23,33 @@ export default function Header({
       <div className={`flex items-center gap-3 ${className}`}>
         <button
           onClick={() => handleClick(onBookLesson)}
-          className="w-full sm:w-auto px-4 py-2 rounded-lg transition border bg-white text-gray-700 hover:bg-gray-50 border-gray-300 font-medium"
+          className="w-full sm:w-auto px-4 py-2 rounded-lg transition border bg-white text-gray-700 hover:bg-gray-50 border-gray-300 font-medium cursor-pointer"
         >
           Book Lesson
         </button>
 
         <button
           onClick={() => handleClick(onStartTest)}
-          className="w-full sm:w-auto px-4 py-2 rounded-lg transition border bg-indigo-600 text-white hover:bg-indigo-700 border-indigo-700"
+          className="w-full sm:w-auto px-4 py-2 rounded-lg transition border bg-indigo-600 text-white hover:bg-indigo-700 border-indigo-700 cursor-pointer"
         >
           Take Theory Test
         </button>
         <button
           onClick={() => handleClick(onToggleNotifications)}
           disabled={notificationsDenied}
-          className={`w-full sm:w-auto px-4 py-2 rounded-lg transition border ${
+          className={`w-full sm:w-auto px-4 py-2 rounded-lg transition border cursor-pointer ${
             notificationsDenied
               ? "bg-gray-300 text-gray-600 cursor-not-allowed border-gray-400"
               : notificationsEnabled
-              ? "bg-green-600 text-white hover:bg-green-700 border-green-700"
-              : "bg-red-600 text-white hover:bg-red-700 border-red-700"
+              ? "bg-green-600 text-white hover:bg-green-700 border-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+              : "bg-red-600 text-white hover:bg-red-700 border-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
           }`}
         >
           {notificationsEnabled ? "Notifications: ON" : "Notifications: OFF"}
         </button>
         <button
           onClick={() => handleClick(onAddDocument)}
-          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           Add Document
@@ -57,7 +57,7 @@ export default function Header({
         
         <button
             onClick={() => handleClick(onLogout)}
-            className="w-full sm:w-auto px-4 py-2 border border-red-200 text-red-600 rounded-lg hover:bg-red-50 transition font-medium"
+            className="w-full sm:w-auto px-4 py-2 border border-red-200 text-red-600 rounded-lg hover:bg-red-50 transition font-medium cursor-pointer"
         >
             Sign Out
         </button>
@@ -85,7 +85,7 @@ export default function Header({
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 cursor-pointer"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" aria-hidden="true" />

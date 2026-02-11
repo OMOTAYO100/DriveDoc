@@ -28,35 +28,37 @@ const loadScript = (src) =>
     document.head.appendChild(s);
   });
 
-const registerPush = async () => {
+// registerPush remains here as a bootstrap function, but we'll export it for App.jsx
+export const registerPush = async () => {
   if (!("serviceWorker" in navigator) || !("PushManager" in window))
-    return false;
-  const permission = await Notification.requestPermission();
-  if (permission !== "granted") return false;
-  const reg = await navigator.serviceWorker.register("/sw.js");
-  const r = await fetch("/api/notifications/public-key");
-  const { publicKey } = await r.json();
-  if (!publicKey) {
-    console.log("No VAPID public key found, skipping push registration.");
-    return false;
+    return null;
+    
+  try {
+    const permission = await Notification.requestPermission();
+    if (permission !== "granted") return null;
+
+    const reg = await navigator.serviceWorker.register("/sw.js");
+    const { publicKey } = await api.getNotificationPublicKey();
+    
+    if (!publicKey) {
+      console.log("No VAPID public key found, skipping push registration.");
+      return null;
+    }
+
+    const key = urlBase64ToUint8Array(publicKey);
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: key,
+    });
+
+    localStorage.setItem("pushSubscription", JSON.stringify(sub));
+    await api.subscribeToPush(sub);
+    
+    return sub;
+  } catch (err) {
+    console.error("Push registration failed:", err);
+    return null;
   }
-  const key = urlBase64ToUint8Array(publicKey);
-  const sub = await reg.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: key,
-  });
-  localStorage.setItem("pushSubscription", JSON.stringify(sub));
-  await fetch("/api/notifications/subscribe", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(localStorage.getItem("token")
-        ? { Authorization: `Bearer ${localStorage.getItem("token")}` }
-        : {}),
-    },
-    body: JSON.stringify(sub),
-  });
-  return true;
 };
 
 const urlBase64ToUint8Array = (base64String) => {
@@ -70,45 +72,13 @@ const urlBase64ToUint8Array = (base64String) => {
   return outputArray;
 };
 
-registerPush();
+// Auto-register on load if already authenticated or token exists
+if (localStorage.getItem("token")) {
+    registerPush().catch(console.error);
+}
+
+// Attach to window only for legacy or quick access if absolutely necessary, 
+// but App.jsx should import it.
 window.registerPush = registerPush;
 
-// Expose loadScript for components to use if needed, or we can move it to utils later.
-// For now, I'm removing the global window.googleSignIn and window.facebookSignIn
-// as they will be handled by the components directly.
 export { loadScript };
-window.optOutNotifications = async () => {
-  const sub = JSON.parse(localStorage.getItem("pushSubscription") || "{}");
-  if (!sub.endpoint) return;
-  await fetch("/api/notifications/opt-out", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(localStorage.getItem("token")
-        ? { Authorization: `Bearer ${localStorage.getItem("token")}` }
-        : {}),
-    },
-    body: JSON.stringify({ endpoint: sub.endpoint }),
-  });
-  try {
-    const reg = await navigator.serviceWorker.getRegistration();
-    const current = reg ? await reg.pushManager.getSubscription() : null;
-    if (current) await current.unsubscribe();
-  } catch (err) {
-    console.warn("Failed to unsubscribe from push", err);
-  }
-};
-window.optInNotifications = async () => {
-  const sub = JSON.parse(localStorage.getItem("pushSubscription") || "{}");
-  if (!sub.endpoint) return;
-  await fetch("/api/notifications/opt-in", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(localStorage.getItem("token")
-        ? { Authorization: `Bearer ${localStorage.getItem("token")}` }
-        : {}),
-    },
-    body: JSON.stringify({ endpoint: sub.endpoint }),
-  });
-};

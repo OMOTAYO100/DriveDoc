@@ -212,4 +212,36 @@ export const api = {
   logout: () => {
     localStorage.removeItem("token");
   },
+
+  // Notifications
+  getNotificationPublicKey: async () => {
+    return safeFetch(`${API_URL}/notifications/public-key`);
+  },
+
+  subscribeToPush: async (subscription) => {
+    return safeFetch(`${API_URL}/notifications/subscribe`, {
+      method: "POST",
+      headers: getHeaders(),
+      credentials: "include",
+      body: JSON.stringify(subscription),
+    });
+  },
+
+  optOutNotifications: async (endpoint) => {
+    return safeFetch(`${API_URL}/notifications/opt-out`, {
+      method: "POST",
+      headers: getHeaders(),
+      credentials: "include",
+      body: JSON.stringify({ endpoint }),
+    });
+  },
+
+  optInNotifications: async (endpoint) => {
+    return safeFetch(`${API_URL}/notifications/opt-in`, {
+      method: "POST",
+      headers: getHeaders(),
+      credentials: "include",
+      body: JSON.stringify({ endpoint }),
+    });
+  },
 };

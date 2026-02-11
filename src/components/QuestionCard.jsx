@@ -54,7 +54,7 @@ export default function QuestionCard({ question, onAnswer }) {
             <button
               key={opt.key}
               onClick={() => onAnswer(opt.key)}
-              className="text-left px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+              className="text-left px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition cursor-pointer"
             >
               <span className="font-semibold mr-2">{opt.key}.</span>
               <span>{opt.text}</span>

@@ -107,13 +107,13 @@ export default function BookingPage({ onBack }) {
         <div className="flex gap-4">
              <button
             onClick={onBack}
-            className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium"
+            className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium cursor-pointer"
           >
             ← Back to Dashboard
           </button>
           <button
             onClick={() => setView(view === "create" ? "list" : "create")}
-            className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-blue-600 hover:bg-blue-50 font-medium transition"
+            className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-blue-600 hover:bg-blue-50 font-medium transition cursor-pointer"
           >
             {view === "create" ? "View My Bookings" : "Book New Lesson"}
           </button>
@@ -152,7 +152,7 @@ export default function BookingPage({ onBack }) {
                       min={new Date().toISOString().split("T")[0]}
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer"
                     />
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function BookingPage({ onBack }) {
                     <select
                       value={time}
                       onChange={(e) => setTime(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer"
                     >
                       <option value="">Select a time</option>
                       <option value="09:00">09:00 AM</option>
@@ -205,7 +205,7 @@ export default function BookingPage({ onBack }) {
                 <button
                   onClick={handleBooking}
                   disabled={loading || !selectedType || !date || !time}
-                  className="w-full mt-4 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                  className="w-full mt-4 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
                 >
                   {loading ? "Confirming..." : "Confirm Booking"}
                 </button>
@@ -219,7 +219,7 @@ export default function BookingPage({ onBack }) {
           {bookings.length === 0 ? (
             <div className="p-12 text-center text-gray-500">
               <p>No upcoming bookings found.</p>
-              <button onClick={() => setView('create')} className="mt-4 text-blue-600 hover:underline">Book your first lesson</button>
+              <button onClick={() => setView('create')} className="mt-4 text-blue-600 hover:underline cursor-pointer">Book your first lesson</button>
             </div>
           ) : (
              <div className="divide-y divide-gray-100">
@@ -245,7 +245,7 @@ export default function BookingPage({ onBack }) {
                         {booking.status !== 'cancelled' && (
                              <button 
                                 onClick={() => cancelBooking(booking._id)}
-                                className="mt-4 md:mt-0 px-4 py-2 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50 transition"
+                                className="mt-4 md:mt-0 px-4 py-2 text-sm text-red-600 border border-red-200 rounded-lg hover:bg-red-50 transition cursor-pointer"
                             >
                                 Cancel Lesson
                              </button>

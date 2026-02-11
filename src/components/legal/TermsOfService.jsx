@@ -6,7 +6,7 @@ const TermsOfService = ({ onBack }) => {
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
         <button 
           onClick={onBack}
-          className="mb-6 text-blue-600 hover:text-blue-800 flex items-center font-medium"
+          className="mb-6 text-blue-600 hover:text-blue-800 flex items-center font-medium cursor-pointer"
         >
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
