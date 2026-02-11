@@ -22,7 +22,8 @@ export const registerPush = async () => {
         throw new Error("Notification permission denied.");
     }
 
-    const reg = await navigator.serviceWorker.register("/sw.js");
+    console.log("Registering Service Worker...");
+    const reg = await navigator.serviceWorker.register("/sw.js", { scope: "/" });
     console.log("Service Worker registered:", reg);
 
     // Check if VAPID key is available

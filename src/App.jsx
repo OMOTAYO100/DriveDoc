@@ -143,18 +143,19 @@ export default function App() {
                 }
             } catch (error) {
                 console.error("Enable notifications failed:", error);
+                const msg = error.message || "Unknown error";
                 
-                if (error.message.includes("permission denied")) {
+                if (msg.toLowerCase().includes("permission denied")) {
                      setNotificationsDenied(true);
-                     alert("Permission denied. Please enable notifications in your browser settings.");
+                     alert("Permission denied. Please enable notifications in your browser settings and refresh.");
                 } else {
-                     alert(`Failed to enable notifications: ${error.message}`);
+                     alert(`Failed to enable notifications. Error: ${msg}`);
                 }
             }
         }
     } catch (err) {
         console.error("Notification toggle failed:", err);
-        alert("An error occurred while toggling notifications.");
+        alert(`An error occurred while toggling notifications: ${err.message || "Unknown error"}`);
     }
   };
 
