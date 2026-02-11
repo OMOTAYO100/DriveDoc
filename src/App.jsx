@@ -37,7 +37,16 @@ export default function App() {
   useEffect(() => {
     checkAuth();
     checkNotificationPermission();
-  }, []);
+
+    // Poll for new documents every 10 seconds
+    const interval = setInterval(() => {
+      if (isAuthenticated) {
+        fetchDocuments();
+      }
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [isAuthenticated]);
 
   const checkAuth = async () => {
     const token = localStorage.getItem("token");
@@ -96,31 +105,47 @@ export default function App() {
 
   const handleToggleNotifications = async () => {
     try {
+        console.log("Toggling notifications. Current state:", { enabled: notificationsEnabled, denied: notificationsDenied });
+        
         if (notificationsEnabled) {
+            console.log("Disabling notifications...");
             // Opt out in app state/local storage
             const sub = JSON.parse(localStorage.getItem("pushSubscription") || "{}");
             if (sub.endpoint) {
                 await api.optOutNotifications(sub.endpoint);
+                console.log("Opt-out API called.");
             }
             setNotificationsEnabled(false);
             localStorage.setItem("notifications_enabled", "false");
+            console.log("Notifications disabled locally.");
         } else {
+            console.log("Enabling notifications...");
             // Check browser permission first
             if (Notification.permission === "denied") {
+                console.warn("Permission denied by browser.");
                 setNotificationsDenied(true);
                 return;
             }
 
             // Register or Opt In
             if (window.registerPush) {
+                console.log("Calling registerPush...");
                 const sub = await window.registerPush();
+                console.log("registerPush result:", sub);
+                
                 if (sub) {
                     setNotificationsEnabled(true);
                     setNotificationsDenied(false);
                     localStorage.setItem("notifications_enabled", "true");
-                } else if (Notification.permission === "denied") {
-                    setNotificationsDenied(true);
+                    console.log("Notifications enabled successfully.");
+                } else {
+                    console.error("registerPush returned null/false.");
+                    if (Notification.permission === "denied") {
+                        setNotificationsDenied(true);
+                    }
                 }
+            } else {
+                console.error("window.registerPush is not defined!");
             }
         }
     } catch (err) {
