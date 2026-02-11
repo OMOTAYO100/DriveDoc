@@ -13,23 +13,29 @@ const urlBase64ToUint8Array = (base64String) => {
 
 export const registerPush = async () => {
   if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
-    console.warn("Push messaging is not supported");
-    return null;
+    throw new Error("Push messaging is not supported in this browser.");
   }
     
   try {
     const permission = await Notification.requestPermission();
     if (permission !== "granted") {
-        console.warn("Notification permission not granted");
-        return null;
+        throw new Error("Notification permission denied.");
     }
 
     const reg = await navigator.serviceWorker.register("/sw.js");
-    const { publicKey } = await api.getNotificationPublicKey();
+    console.log("Service Worker registered:", reg);
+
+    // Check if VAPID key is available
+    let publicKey;
+    try {
+        const response = await api.getNotificationPublicKey();
+        publicKey = response.publicKey;
+    } catch (apiError) {
+        throw new Error(`Failed to fetch VAPID key: ${apiError.message}`);
+    }
     
     if (!publicKey) {
-      console.log("No VAPID public key found, skipping push registration.");
-      return null;
+      throw new Error("Server returned no VAPID public key. Please check backend configuration.");
     }
 
     const key = urlBase64ToUint8Array(publicKey);
@@ -38,12 +44,13 @@ export const registerPush = async () => {
       applicationServerKey: key,
     });
 
+    console.log("User subscribed:", sub);
     localStorage.setItem("pushSubscription", JSON.stringify(sub));
-    await api.subscribeToPush(sub);
     
+    await api.subscribeToPush(sub);
     return sub;
   } catch (err) {
     console.error("Push registration failed:", err);
-    return null;
+    throw err; // Re-throw to be caught by App.jsx
   }
 };

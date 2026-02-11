@@ -131,21 +131,24 @@ export default function App() {
 
             // Register or Opt In
             console.log("Calling registerPush from service...");
-            const sub = await registerPush();
-            console.log("registerPush result:", sub);
-            
-            if (sub) {
-                setNotificationsEnabled(true);
-                setNotificationsDenied(false);
-                localStorage.setItem("notifications_enabled", "true");
-                console.log("Notifications enabled successfully.");
-            } else {
-                console.error("registerPush returned null/false.");
-                if (Notification.permission === "denied") {
-                    setNotificationsDenied(true);
-                    alert("Permission denied. Please enable notifications in your browser.");
+            try {
+                const sub = await registerPush();
+                console.log("registerPush result:", sub);
+                
+                if (sub) {
+                    setNotificationsEnabled(true);
+                    setNotificationsDenied(false);
+                    localStorage.setItem("notifications_enabled", "true");
+                    console.log("Notifications enabled successfully.");
+                }
+            } catch (error) {
+                console.error("Enable notifications failed:", error);
+                
+                if (error.message.includes("permission denied")) {
+                     setNotificationsDenied(true);
+                     alert("Permission denied. Please enable notifications in your browser settings.");
                 } else {
-                    alert("Failed to enable notifications. Please try again.");
+                     alert(`Failed to enable notifications: ${error.message}`);
                 }
             }
         }
