@@ -5,6 +5,7 @@ import StatsGrid from "./components/StatsGrid";
 import DocumentsList from "./components/DocumentsList";
 import { CATEGORIES } from "./utils/categoryMapping";
 import { api } from "./services/api";
+import { registerPush } from "./services/pushService";
 
 const LoginPage = lazy(() => import("./components/auth/LoginPage"));
 const SignupPage = lazy(() => import("./components/auth/SignupPage"));
@@ -103,7 +104,7 @@ export default function App() {
     }
   };
 
-  const handleToggleNotifications = async () => {
+    const handleToggleNotifications = async () => {
     try {
         console.log("Toggling notifications. Current state:", { enabled: notificationsEnabled, denied: notificationsDenied });
         
@@ -124,32 +125,33 @@ export default function App() {
             if (Notification.permission === "denied") {
                 console.warn("Permission denied by browser.");
                 setNotificationsDenied(true);
+                alert("Notifications are blocked. Please enable them in your browser settings.");
                 return;
             }
 
             // Register or Opt In
-            if (window.registerPush) {
-                console.log("Calling registerPush...");
-                const sub = await window.registerPush();
-                console.log("registerPush result:", sub);
-                
-                if (sub) {
-                    setNotificationsEnabled(true);
-                    setNotificationsDenied(false);
-                    localStorage.setItem("notifications_enabled", "true");
-                    console.log("Notifications enabled successfully.");
-                } else {
-                    console.error("registerPush returned null/false.");
-                    if (Notification.permission === "denied") {
-                        setNotificationsDenied(true);
-                    }
-                }
+            console.log("Calling registerPush from service...");
+            const sub = await registerPush();
+            console.log("registerPush result:", sub);
+            
+            if (sub) {
+                setNotificationsEnabled(true);
+                setNotificationsDenied(false);
+                localStorage.setItem("notifications_enabled", "true");
+                console.log("Notifications enabled successfully.");
             } else {
-                console.error("window.registerPush is not defined!");
+                console.error("registerPush returned null/false.");
+                if (Notification.permission === "denied") {
+                    setNotificationsDenied(true);
+                    alert("Permission denied. Please enable notifications in your browser.");
+                } else {
+                    alert("Failed to enable notifications. Please try again.");
+                }
             }
         }
     } catch (err) {
         console.error("Notification toggle failed:", err);
+        alert("An error occurred while toggling notifications.");
     }
   };
 
