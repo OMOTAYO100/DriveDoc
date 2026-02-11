@@ -4,7 +4,6 @@ if (import.meta.env.DEV) {
   console.log("API URL initialized at:", API_URL);
 }
 
-// Helper to get headers with token
 const getHeaders = () => {
   const token = localStorage.getItem("token");
   return {
@@ -39,7 +38,6 @@ const handleResponse = async (response, url) => {
       throw new Error(`Invalid JSON response from server (${response.status})`);
     }
   } else {
-    // Handle non-JSON response (likely an error page or 404)
     console.error("Non-JSON response received:", {
       status: response.status,
       statusText: response.statusText,
@@ -140,7 +138,7 @@ export const api = {
   getMe: async () => {
     return safeFetch(`${API_URL}/auth/me`, {
       headers: getHeaders(),
-      credentials: "include", // Enable cookies
+      credentials: "include",
     });
   },
 
@@ -148,7 +146,7 @@ export const api = {
   getDocuments: async () => {
     return safeFetch(`${API_URL}/documents`, {
       headers: getHeaders(),
-      credentials: "include", // Enable cookies
+      credentials: "include",
     });
   },
 
@@ -178,7 +176,6 @@ export const api = {
     });
   },
 
-  // Bookings
   getMyBookings: async () => {
     return safeFetch(`${API_URL}/bookings`, {
       headers: getHeaders(),
@@ -203,7 +200,6 @@ export const api = {
     });
   },
 
-  // Payments (Paystack)
   verifyPayment: async (data) => {
     return safeFetch(`${API_URL}/payments/verify`, {
       method: "POST",

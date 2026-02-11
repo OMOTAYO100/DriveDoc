@@ -6,13 +6,10 @@ import testData from "../testData.json";
 import { getDisplayCategory, CATEGORIES } from "../utils/categoryMapping";
 
 export default function TestContainer({ initialCategory, onExit, onComplete }) {
-  const [view, setView] = useState("selection"); // 'selection', 'test', 'result'
+  const [view, setView] = useState("selection");
   const [selectedCategories, setSelectedCategories] = useState([]);
-  
-  // Progress State
   const [progress, setProgress] = useState({});
 
-  // Questions State
   const [mappedQuestions, setMappedQuestions] = useState([]);
   const [activeQuestions, setActiveQuestions] = useState([]);
   const [current, setCurrent] = useState(0);
@@ -20,7 +17,6 @@ export default function TestContainer({ initialCategory, onExit, onComplete }) {
 
   // Initialize Data
   useEffect(() => {
-    // 1. Map and deduplicate questions
     const seen = new Set();
     const uniqueQuestions = [];
     
@@ -39,7 +35,6 @@ export default function TestContainer({ initialCategory, onExit, onComplete }) {
 
     setMappedQuestions(uniqueQuestions);
 
-    // 2. Load progress
     const savedProgress = localStorage.getItem("theoryProgress");
     let initialProg = {};
     if (savedProgress) {
@@ -50,7 +45,6 @@ export default function TestContainer({ initialCategory, onExit, onComplete }) {
         }
     }
 
-    // 3. Update totals
     const newProgress = { ...initialProg };
     CATEGORIES.forEach(cat => {
         if (!newProgress[cat.label]) {
@@ -61,7 +55,6 @@ export default function TestContainer({ initialCategory, onExit, onComplete }) {
 
     setProgress(newProgress);
 
-    // 4. Handle initial category selection
     if (initialCategory) {
         const pool = uniqueQuestions.filter(q => q.displayCategory === initialCategory);
         if (pool.length > 0) {
@@ -73,7 +66,6 @@ export default function TestContainer({ initialCategory, onExit, onComplete }) {
   }, [initialCategory]);
 
   const startTestWithPool = (pool) => {
-    // Shuffle
     const shuffled = [...pool];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -125,10 +117,7 @@ export default function TestContainer({ initialCategory, onExit, onComplete }) {
     }
 
     // Update Progress
-    if (key !== null) { // Only count if actually answered (not timed out maybe? or user skipped? logic depends. Assuming timed out counts as wrong answer but 'answered')
-        // Ideally we track answered unique questions, but for now just simple counters
-        // To avoid double counting re-takes in the same session, we'd need complex logic.
-        // For this simple implementation, we just increment.
+    if (key !== null) {
         setProgress(prev => {
             const cat = question.displayCategory;
             return {

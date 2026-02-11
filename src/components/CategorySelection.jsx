@@ -32,7 +32,6 @@ export default function CategorySelection({ progress, selected, onToggle, onSele
       </div>
 
       <div className="space-y-4 px-2">
-        {/* All Categories Toggle */}
         <div 
             onClick={onSelectAll}
             className="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-200 cursor-pointer hover:bg-gray-50 transition"

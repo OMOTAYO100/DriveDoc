@@ -10,7 +10,6 @@ export const scanDocument = async (imageSource) => {
   
   try {
     const { data: { text } } = await worker.recognize(imageSource);
-    console.log('Scanned text:', text);
 
     const details = {
       number: '',

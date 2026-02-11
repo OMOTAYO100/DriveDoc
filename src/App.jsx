@@ -1,17 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import LandingPage from "./components/LandingPage";
-import LoginPage from "./components/auth/LoginPage";
-import SignupPage from "./components/auth/SignupPage";
-import { api } from "./services/api";
-import PrivacyPolicy from "./components/legal/PrivacyPolicy";
 import Header from "./components/Header";
 import StatsGrid from "./components/StatsGrid";
 import DocumentsList from "./components/DocumentsList";
-// import CategorySelection from "./components/CategorySelection"; // Removed to avoid prop mismatch crash
 import { CATEGORIES } from "./utils/categoryMapping";
-import TestContainer from "./components/TestContainer";
-import BookingPage from "./components/booking/BookingPage";
-import AddDocumentModal from "./components/AddDocumentModal";
+import { api } from "./services/api";
+
+const LoginPage = lazy(() => import("./components/auth/LoginPage"));
+const SignupPage = lazy(() => import("./components/auth/SignupPage"));
+const TestContainer = lazy(() => import("./components/TestContainer"));
+const BookingPage = lazy(() => import("./components/booking/BookingPage"));
+const AddDocumentModal = lazy(() => import("./components/AddDocumentModal"));
+const PrivacyPolicy = lazy(() => import("./components/legal/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./components/legal/TermsOfService"));
+
+const LoadingSpinner = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+  </div>
+);
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -152,36 +159,30 @@ export default function App() {
   }
 
   if (!isAuthenticated) {
-    if (currentAuthPage === "landing") {
-      return <LandingPage onGetStarted={() => setCurrentAuthPage("login")} />;
-    }
-
-    if (currentAuthPage === "signup") {
-      return (
-        <SignupPage
-          onSignup={handleAuthSuccess}
-          onSwitchToLogin={() => setCurrentAuthPage("login")}
-          onShowPrivacy={() => setCurrentAuthPage("privacy")}
-          onShowTerms={() => setCurrentAuthPage("terms")}
-        />
-      );
-    }
-
-    if (currentAuthPage === "privacy") {
-      return <PrivacyPolicy onBack={() => setCurrentAuthPage("login")} />;
-    }
-
-    if (currentAuthPage === "terms") {
-      return <TermsOfService onBack={() => setCurrentAuthPage("login")} />;
-    }
-
     return (
-      <LoginPage
-        onLogin={handleAuthSuccess}
-        onSwitchToSignup={() => setCurrentAuthPage("signup")}
-        onShowPrivacy={() => setCurrentAuthPage("privacy")}
-        onShowTerms={() => setCurrentAuthPage("terms")}
-      />
+      <Suspense fallback={<LoadingSpinner />}>
+        {currentAuthPage === "landing" ? (
+          <LandingPage onGetStarted={() => setCurrentAuthPage("login")} />
+        ) : currentAuthPage === "signup" ? (
+          <SignupPage
+            onSignup={handleAuthSuccess}
+            onSwitchToLogin={() => setCurrentAuthPage("login")}
+            onShowPrivacy={() => setCurrentAuthPage("privacy")}
+            onShowTerms={() => setCurrentAuthPage("terms")}
+          />
+        ) : currentAuthPage === "privacy" ? (
+          <PrivacyPolicy onBack={() => setCurrentAuthPage("login")} />
+        ) : currentAuthPage === "terms" ? (
+          <TermsOfService onBack={() => setCurrentAuthPage("login")} />
+        ) : (
+          <LoginPage
+            onLogin={handleAuthSuccess}
+            onSwitchToSignup={() => setCurrentAuthPage("signup")}
+            onShowPrivacy={() => setCurrentAuthPage("privacy")}
+            onShowTerms={() => setCurrentAuthPage("terms")}
+          />
+        )}
+      </Suspense>
     );
   }
 
@@ -199,85 +200,89 @@ export default function App() {
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {currentView === "dashboard" && (
-          <>
-            <StatsGrid documents={documents} />
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2">
-                <DocumentsList 
-                  documents={documents} 
-                  onDelete={handleDeleteDocument}
-                  onAddDocument={() => setIsAddModalOpen(true)}
-                />
-              </div>
+        <Suspense fallback={<LoadingSpinner />}>
+          {currentView === "dashboard" && (
+            <>
+              <StatsGrid documents={documents} />
               
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                  Practice Theory Test
-                </h2>
-                <div className="space-y-4">
-                  <p className="text-gray-600 text-sm">
-                    Select a category to start practicing for your driving theory test.
-                  </p>
-                  <div className="grid grid-cols-1 gap-2 max-h-96 overflow-y-auto pr-2">
-                    {CATEGORIES.map((cat) => {
-                      const Icon = cat.icon;
-                      return (
-                        <button
-                          key={cat.id}
-                          onClick={() => {
-                            setSelectedCategory(cat.label);
-                            setCurrentView("test");
-                          }}
-                          className="flex items-center gap-3 p-3 w-full text-left border border-gray-200 rounded-lg hover:bg-gray-50 transition"
-                        >
-                          <div className="p-2 bg-blue-50 text-blue-600 rounded-md">
-                            <Icon className="w-5 h-5" />
-                          </div>
-                          <span className="font-medium text-gray-700">{cat.label}</span>
-                        </button>
-                      );
-                    })}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="lg:col-span-2">
+                  <DocumentsList 
+                    documents={documents} 
+                    onDelete={handleDeleteDocument}
+                    onAddDocument={() => setIsAddModalOpen(true)}
+                  />
+                </div>
+                
+                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                  <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                    Practice Theory Test
+                  </h2>
+                  <div className="space-y-4">
+                    <p className="text-gray-600 text-sm">
+                      Select a category to start practicing for your driving theory test.
+                    </p>
+                    <div className="grid grid-cols-1 gap-2 max-h-96 overflow-y-auto pr-2">
+                      {CATEGORIES.map((cat) => {
+                        const Icon = cat.icon;
+                        return (
+                          <button
+                            key={cat.id}
+                            onClick={() => {
+                              setSelectedCategory(cat.label);
+                              setCurrentView("test");
+                            }}
+                            className="flex items-center gap-3 p-3 w-full text-left border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+                          >
+                            <div className="p-2 bg-blue-50 text-blue-600 rounded-md">
+                              <Icon className="w-5 h-5" />
+                            </div>
+                            <span className="font-medium text-gray-700">{cat.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <button
+                      onClick={() => {
+                          setSelectedCategory(null);
+                          setCurrentView("test");
+                      }} 
+                      className="w-full mt-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium"
+                    >
+                      Start Full Practice Test
+                    </button>
                   </div>
-                  <button
-                    onClick={() => {
-                        setSelectedCategory(null); // All
-                        setCurrentView("test");
-                    }} 
-                    className="w-full mt-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium"
-                  >
-                    Start Full Practice Test
-                  </button>
                 </div>
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
 
-        {currentView === "test" && (
-          <TestContainer
-            initialCategory={selectedCategory}
-            onComplete={() => setCurrentView("dashboard")}
-            onExit={() => {
-                setSelectedCategory(null);
-                setCurrentView("dashboard");
-            }}
-          />
-        )}
-        
-        {currentView === "booking" && (
-          <BookingPage onBack={() => setCurrentView("dashboard")} />
-        )}
+          {currentView === "test" && (
+            <TestContainer
+              initialCategory={selectedCategory}
+              onComplete={() => setCurrentView("dashboard")}
+              onExit={() => {
+                  setSelectedCategory(null);
+                  setCurrentView("dashboard");
+              }}
+            />
+          )}
+          
+          {currentView === "booking" && (
+            <BookingPage onBack={() => setCurrentView("dashboard")} />
+          )}
+        </Suspense>
       </main>
 
-      {isAddModalOpen && (
-        <AddDocumentModal
-          isOpen={isAddModalOpen}
-          onClose={() => setIsAddModalOpen(false)}
-          onAdd={handleAddDocument}
-        />
-      )}
+      <Suspense fallback={null}>
+        {isAddModalOpen && (
+          <AddDocumentModal
+            isOpen={isAddModalOpen}
+            onClose={() => setIsAddModalOpen(false)}
+            onAdd={handleAddDocument}
+          />
+        )}
+      </Suspense>
     </div>
   );
 }
