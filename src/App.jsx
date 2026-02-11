@@ -219,6 +219,15 @@ export default function App() {
         <Suspense fallback={<LoadingSpinner />}>
           {currentView === "dashboard" && (
             <>
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-gray-900">
+                  {user?.fullName ? `Welcome back, ${user.fullName.split(' ')[0]}!` : 'Dashboard'}
+                </h2>
+                <p className="mt-2 text-gray-600">
+                  Here's an overview of your driving documents and upcoming lessons.
+                </p>
+              </div>
+
               <StatsGrid documents={documents} />
               
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
