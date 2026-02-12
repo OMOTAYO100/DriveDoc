@@ -1,7 +1,14 @@
 import React from "react";
 import { ArrowRight, Shield, Bell, Clock } from "lucide-react";
 
-export default function LandingPage({ onGetStarted }) {
+export default function LandingPage({ onGetStarted, onShowPrivacy, onShowTerms }) {
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById("how-it-works");
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -44,6 +51,7 @@ export default function LandingPage({ onGetStarted }) {
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
+              onClick={scrollToFeatures}
               className="px-8 py-4 font-bold text-gray-900 transition-all duration-200 bg-transparent border-2 border-gray-200 rounded-xl hover:bg-gray-50 focus:outline-none w-full sm:w-auto cursor-pointer"
             >
               How it works
@@ -51,8 +59,16 @@ export default function LandingPage({ onGetStarted }) {
           </div>
         </div>
 
-        {/* Features Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-gray-50/50 rounded-3xl mb-20">
+        {/* Features Section / How it works */}
+        <div id="how-it-works" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-gray-50/50 rounded-3xl mb-20 scroll-mt-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              How DriveDoc Works
+            </h2>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+              Simple, secure, and stress-free document management for the modern driver.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="p-6">
               <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
@@ -84,8 +100,18 @@ export default function LandingPage({ onGetStarted }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-sm">© 2026 DriveDoc. All rights reserved.</p>
           <div className="flex gap-8">
-            <a href="#" className="text-sm text-gray-500 hover:text-blue-600 cursor-pointer">Privacy Policy</a>
-            <a href="#" className="text-sm text-gray-500 hover:text-blue-600 cursor-pointer">Terms of Service</a>
+            <button 
+              onClick={onShowPrivacy} 
+              className="text-sm text-gray-500 hover:text-blue-600 cursor-pointer bg-transparent border-none p-0"
+            >
+              Privacy Policy
+            </button>
+            <button 
+              onClick={onShowTerms} 
+              className="text-sm text-gray-500 hover:text-blue-600 cursor-pointer bg-transparent border-none p-0"
+            >
+              Terms of Service
+            </button>
           </div>
         </div>
       </footer>

@@ -217,7 +217,11 @@ export default function App() {
     return (
       <Suspense fallback={<LoadingSpinner />}>
         {currentAuthPage === "landing" ? (
-          <LandingPage onGetStarted={() => setCurrentAuthPage("login")} />
+          <LandingPage 
+            onGetStarted={() => setCurrentAuthPage("login")} 
+            onShowPrivacy={() => setCurrentAuthPage("privacy")}
+            onShowTerms={() => setCurrentAuthPage("terms")}
+          />
         ) : currentAuthPage === "signup" ? (
           <SignupPage
             onSignup={handleAuthSuccess}
