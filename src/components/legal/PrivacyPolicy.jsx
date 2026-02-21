@@ -32,13 +32,8 @@ const PrivacyPolicy = ({ onBack }) => {
             <p>We do not share your personal information with third parties except as required by law or to provide our services (e.g., processing payments via Paystack).</p>
           </section>
 
-          <section id="deletion" className="bg-blue-50 p-4 rounded-md border border-blue-100">
-            <h2 className="text-xl font-semibold text-blue-800">4. Data Deletion (Facebook Requirement)</h2>
-            <p className="text-blue-700">You have the right to request the deletion of your data at any time. To delete your account and all associated data, please contact us at <span className="font-medium underline">oshiboteomotayo100@gmail.com</span> with the subject line "Data Deletion Request". We will process your request within 48 hours.</p>
-          </section>
-
           <section>
-            <h2 className="text-xl font-semibold text-gray-800">5. Contact Us</h2>
+            <h2 className="text-xl font-semibold text-gray-800">4. Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, please contact us at oshiboteomotayo100@gmail.com.</p>
           </section>
         </div>

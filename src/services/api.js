@@ -117,23 +117,6 @@ export const api = {
       throw error;
     }
   },
-  oauthFacebook: async (accessToken) => {
-    try {
-      const data = await safeFetch(`${API_URL}/auth/oauth/facebook`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include", // Enable cookies
-        body: JSON.stringify({ accessToken }),
-      });
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-      }
-      return data;
-    } catch (error) {
-      console.error("Facebook OAuth error:", error);
-      throw error;
-    }
-  },
 
   getMe: async () => {
     return safeFetch(`${API_URL}/auth/me`, {
