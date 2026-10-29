@@ -34,13 +34,13 @@ export default function LandingPage({ onGetStarted, onShowPrivacy, onShowTerms }
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-8 tracking-tight leading-[1.1]">
             Never Miss a Car <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-indigo-600">
               Document Deadline
             </span>{" "}
             Again
           </h1>
           <p className="max-w-2xl mx-auto text-xl text-gray-600 mb-10 leading-relaxed">
-            From insurance to licenses, DriveDoc tracks your car-related documents and sends smart reminders before they expire.
+            From insurance to licences, DriveDoc tracks when your car documents expire and reminds you before they do.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
@@ -75,14 +75,14 @@ export default function LandingPage({ onGetStarted, onShowPrivacy, onShowTerms }
                 <Bell className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Smart Reminders</h3>
-              <p className="text-gray-600">Get notified well in advance before your documents expire, so you're never caught off guard.</p>
+              <p className="text-gray-600">A heads-up a month ahead, then daily in the final week — so nothing lapses while you are not looking.</p>
             </div>
             <div className="p-6">
               <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-6">
                 <Shield className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Secure Storage</h3>
-              <p className="text-gray-600">Your documents are encrypted and safely stored, accessible only by you whenever you need them.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Private by design</h3>
+              <p className="text-gray-600">We store expiry dates and reference numbers — never copies of your documents. Your records are visible only to you.</p>
             </div>
             <div className="p-6">
               <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">

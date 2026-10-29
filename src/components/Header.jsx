@@ -1,5 +1,95 @@
-import { Plus, Menu, X } from "lucide-react";
+import { Plus, Menu, X, Bell, BellOff, UserCog } from "lucide-react";
 import { useState } from "react";
+
+/**
+ * Defined at module scope, not inside Header. A component created during
+ * render is a new type on every render, so React unmounts and remounts the
+ * whole subtree whenever parent state changes.
+ */
+function ActionButtons({
+  className = "",
+  onAction,
+  onFindSchool,
+  onStartTest,
+  onToggleNotifications,
+  onAddDocument,
+  onOpenAccount,
+  onLogout,
+  notificationsEnabled,
+  notificationsDenied,
+}) {
+  const handleClick = (action) => {
+    action?.();
+    onAction?.();
+  };
+
+  const NotifIcon = notificationsEnabled ? Bell : BellOff;
+
+  return (
+    <div className={`flex items-center gap-3 ${className}`}>
+      <button
+        onClick={() => handleClick(onFindSchool)}
+        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 transition hover:bg-gray-50 sm:w-auto cursor-pointer"
+      >
+        Find a School
+      </button>
+
+      <button
+        onClick={() => handleClick(onStartTest)}
+        className="w-full rounded-lg border border-indigo-700 bg-indigo-600 px-4 py-2 text-white transition hover:bg-indigo-700 sm:w-auto cursor-pointer"
+      >
+        Take Theory Test
+      </button>
+
+      <button
+        onClick={() => handleClick(onToggleNotifications)}
+        disabled={notificationsDenied}
+        aria-pressed={notificationsEnabled}
+        title={
+          notificationsDenied
+            ? "Notifications are blocked in your browser settings"
+            : notificationsEnabled
+              ? "Turn expiry reminders off"
+              : "Turn expiry reminders on"
+        }
+        className={`flex w-full items-center justify-center gap-2 rounded-lg border px-4 py-2 transition sm:w-auto ${
+          notificationsDenied
+            ? "cursor-not-allowed border-gray-300 bg-gray-100 text-gray-400"
+            : notificationsEnabled
+              ? "cursor-pointer border-green-700 bg-green-600 text-white hover:bg-green-700"
+              : "cursor-pointer border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+        }`}
+      >
+        <NotifIcon className="h-4 w-4" aria-hidden="true" />
+        {notificationsEnabled ? "Reminders on" : "Reminders off"}
+      </button>
+
+      <button
+        onClick={() => handleClick(onAddDocument)}
+        className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700 sm:w-auto cursor-pointer"
+      >
+        <Plus className="h-4 w-4" aria-hidden="true" />
+        Add Document
+      </button>
+
+      <button
+        onClick={() => handleClick(onOpenAccount)}
+        title="Account settings"
+        className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 font-medium text-gray-700 transition hover:bg-gray-50 sm:w-auto cursor-pointer"
+      >
+        <UserCog className="h-4 w-4" aria-hidden="true" />
+        <span className="sm:hidden">Account</span>
+      </button>
+
+      <button
+        onClick={() => handleClick(onLogout)}
+        className="w-full rounded-lg border border-red-200 px-4 py-2 font-medium text-red-600 transition hover:bg-red-50 sm:w-auto cursor-pointer"
+      >
+        Sign Out
+      </button>
+    </div>
+  );
+}
 
 export default function Header({
   onAddDocument,
@@ -7,88 +97,51 @@ export default function Header({
   notificationsDenied,
   onToggleNotifications,
   onStartTest,
-  onBookLesson,
-  onRenewDocuments,
+  onFindSchool,
+  onOpenAccount,
   onLogout,
   user,
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const ActionButtons = ({ className = "", onAction }) => {
-    const handleClick = (action) => {
-      action?.();
-      onAction?.();
-    };
-
-    return (
-      <div className={`flex items-center gap-3 ${className}`}>
-        <button
-          onClick={() => handleClick(onBookLesson)}
-          className="w-full sm:w-auto px-4 py-2 rounded-lg transition border bg-white text-gray-700 hover:bg-gray-50 border-gray-300 font-medium cursor-pointer"
-        >
-          Book Lesson
-        </button>
-
-        <button
-          onClick={() => handleClick(onStartTest)}
-          className="w-full sm:w-auto px-4 py-2 rounded-lg transition border bg-indigo-600 text-white hover:bg-indigo-700 border-indigo-700 cursor-pointer"
-        >
-          Take Theory Test
-        </button>
-        <button
-          onClick={() => handleClick(onToggleNotifications)}
-          disabled={notificationsDenied}
-          className={`w-full sm:w-auto px-4 py-2 rounded-lg transition border cursor-pointer ${
-            notificationsDenied
-              ? "bg-gray-300 text-gray-600 cursor-not-allowed border-gray-400"
-              : notificationsEnabled
-              ? "bg-green-600 text-white hover:bg-green-700 border-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-              : "bg-red-600 text-white hover:bg-red-700 border-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-          }`}
-        >
-          {notificationsEnabled ? "Notifications: ON" : "Notifications: OFF"}
-        </button>
-        <button
-          onClick={() => handleClick(onAddDocument)}
-          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition cursor-pointer"
-        >
-          <Plus className="w-4 h-4" />
-          Add Document
-        </button>
-        
-        <button
-            onClick={() => handleClick(onLogout)}
-            className="w-full sm:w-auto px-4 py-2 border border-red-200 text-red-600 rounded-lg hover:bg-red-50 transition font-medium cursor-pointer"
-        >
-            Sign Out
-        </button>
-      </div>
-    );
+  const actionProps = {
+    onFindSchool,
+    onStartTest,
+    onToggleNotifications,
+    onAddDocument,
+    onOpenAccount,
+    onLogout,
+    notificationsEnabled,
+    notificationsDenied,
   };
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+    <header className="border-b border-gray-200 bg-white shadow-sm">
+      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">DriveDoc</h1>
+            <h1 className="text-2xl font-bold text-gray-900">
+              Drive<span className="text-blue-600">Doc</span>
+            </h1>
             <p className="text-sm text-gray-600">
-              {user?.fullName 
-                ? `Welcome back, ${user.fullName.split(' ')[0]}!` 
+              {user?.fullName
+                ? `Welcome back, ${user.fullName.split(" ")[0]}!`
                 : "Your Driving Document Manager"}
             </p>
           </div>
-          
+
           {/* Desktop Actions */}
           <div className="hidden md:block">
-            <ActionButtons />
+            <ActionButtons {...actionProps} />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 cursor-pointer"
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              className="rounded-md p-2 text-gray-600 transition hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 cursor-pointer"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" aria-hidden="true" />
@@ -101,9 +154,10 @@ export default function Header({
 
         {/* Mobile Menu Actions */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-2">
-            <ActionButtons 
-              className="flex-col !items-stretch" 
+          <div className="mt-4 pb-2 md:hidden">
+            <ActionButtons
+              {...actionProps}
+              className="flex-col items-stretch!"
               onAction={() => setIsMenuOpen(false)}
             />
           </div>
@@ -111,8 +165,8 @@ export default function Header({
 
         {notificationsDenied && (
           <div className="mt-3 text-sm text-red-600">
-            Notifications are blocked in your browser. Enable them in Page
-            Info/Site settings, then refresh.
+            Notifications are blocked for this site. Allow them in your browser's site settings,
+            then reload the page.
           </div>
         )}
       </div>

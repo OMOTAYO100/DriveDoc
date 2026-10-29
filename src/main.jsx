@@ -3,12 +3,15 @@ import { createRoot } from "react-dom/client";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./index.css";
 import App from "./App.jsx";
-import { api } from "./services/api";
+import { resubscribeIfEnabled } from "./services/pushService";
 
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 if (import.meta.env.DEV) {
-  console.log("Google Client ID status:", googleClientId ? `Loaded (${googleClientId.substring(0, 10)}...)` : "MISSING");
+  console.log(
+    "Google Client ID status:",
+    googleClientId ? `Loaded (${googleClientId.slice(0, 10)}...)` : "MISSING"
+  );
 }
 
 createRoot(document.getElementById("root")).render(
@@ -19,23 +22,12 @@ createRoot(document.getElementById("root")).render(
   </StrictMode>
 );
 
-const loadScript = (src) =>
-  new Promise((resolve, reject) => {
-    const s = document.createElement("script");
-    s.src = src;
-    s.async = true;
-    s.onload = resolve;
-    s.onerror = reject;
-    document.head.appendChild(s);
-  });
-
-// Auto-register on load if already authenticated or token exists
-// We import registerPush dynamically to avoid circular dependencies if any, 
-// though moving it to a service solves that.
-import { registerPush } from "./services/pushService";
-
-if (localStorage.getItem("token")) {
-    registerPush().catch(console.error);
+// Refresh the push subscription on load, but only for users who have actually
+// turned notifications on. The previous version called registerPush() for
+// anyone holding a token, which prompted for permission without a user gesture
+// and re-enabled a subscription the user had just opted out of.
+if (localStorage.getItem("token") && localStorage.getItem("notifications_enabled") === "true") {
+  resubscribeIfEnabled().catch((err) =>
+    console.warn("Could not refresh push subscription:", err.message)
+  );
 }
-
-export { loadScript };

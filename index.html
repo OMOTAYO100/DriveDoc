@@ -2,17 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="DriveDoc - The smartest way to manage your driving documents, licenses, and theory test preparation. Global compliance made easy." />
-    <meta name="keywords" content="driving license, vehicle insurance, theory test, mock test, car documents, document management, DriveDoc" />
-    <meta property="og:title" content="DriveDoc | Smart Driving Document Management" />
-    <meta property="og:description" content="Global compliance made easy. Keep all your driving documents in one secure place." />
-    <meta property="og:type" content="website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
     <title>DriveDoc | Smart Driving Document Management</title>
+    <meta name="description" content="DriveDoc tracks your driving licence, insurance and vehicle documents, reminds you before they expire, and helps you practise for your theory test." />
+    <meta name="keywords" content="driving licence, vehicle insurance, theory test, mock test, car documents, document expiry reminders, DriveDoc" />
+
+    <!-- Installable PWA. iOS only permits web push for a site added to the Home
+         Screen WITH a manifest declaring display:standalone — without this the
+         app's core reminder feature cannot work on iPhone at all. -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="DriveDoc" />
+
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+    <meta property="og:title" content="DriveDoc | Smart Driving Document Management" />
+    <meta property="og:description" content="Never miss a driving document deadline. Track licences, insurance and vehicle papers, and get reminded before they expire." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/icons/icon-512x512.png" />
+    <meta name="twitter:card" content="summary" />
   </head>
   <body>
     <div id="root"></div>
+    <noscript>DriveDoc needs JavaScript enabled to run.</noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,23 +1,37 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import LandingPage from "./components/LandingPage";
 import Header from "./components/Header";
 import StatsGrid from "./components/StatsGrid";
 import DocumentsList from "./components/DocumentsList";
+import Toast from "./components/Toast";
 import { CATEGORIES } from "./utils/categoryMapping";
 import { api } from "./services/api";
-import { registerPush } from "./services/pushService";
+import {
+  registerPush,
+  unregisterPush,
+  isPushSupported,
+  isIosSafari,
+  isStandalone,
+} from "./services/pushService";
 
 const LoginPage = lazy(() => import("./components/auth/LoginPage"));
 const SignupPage = lazy(() => import("./components/auth/SignupPage"));
+const ResetPasswordPage = lazy(() => import("./components/auth/ResetPasswordPage"));
 const TestContainer = lazy(() => import("./components/TestContainer"));
-const BookingPage = lazy(() => import("./components/booking/BookingPage"));
+const SchoolsPage = lazy(() => import("./components/schools/SchoolsPage"));
 const AddDocumentModal = lazy(() => import("./components/AddDocumentModal"));
+const AccountModal = lazy(() => import("./components/AccountModal"));
+const RenewalGuideModal = lazy(() => import("./components/RenewalGuideModal"));
 const PrivacyPolicy = lazy(() => import("./components/legal/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./components/legal/TermsOfService"));
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-50">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    <div
+      className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+      role="status"
+      aria-label="Loading"
+    />
   </div>
 );
 
@@ -25,268 +39,338 @@ export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [currentAuthPage, setCurrentAuthPage] = useState("landing");
+  const [resetToken, setResetToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // Dashboard state
   const [currentView, setCurrentView] = useState("dashboard");
   const [documents, setDocuments] = useState([]);
+  const [documentsError, setDocumentsError] = useState("");
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [editingDocument, setEditingDocument] = useState(null);
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
+  const [renewalDocument, setRenewalDocument] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [notificationsDenied, setNotificationsDenied] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
+  const [toast, setToast] = useState(null);
 
-  useEffect(() => {
-    checkAuth();
-    checkNotificationPermission();
+  const notify = useCallback((message, tone = "info") => setToast({ message, tone }), []);
 
-    // Poll for new documents every 10 seconds
-    const interval = setInterval(() => {
-      if (isAuthenticated) {
-        fetchDocuments();
-      }
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [isAuthenticated]);
-
-  const checkAuth = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      console.log("Verifying session...");
-      const data = await api.getMe();
-      console.log("Session verified, user:", data.user);
-      setUser(data.user);
-      setIsAuthenticated(true);
-      fetchDocuments();
-    } catch (err) {
-      console.error("Session check failed:", err);
-      // Only logout if token is explicitly invalid (401)
-      if (err.message?.includes("401") || err.message?.includes("Invalid token") || err.message?.includes("jwt expired")) {
-        console.log("Token invalid, logging out.");
-        localStorage.removeItem("token");
-      }
-      // If it's a network error, we don't remove the token, but we can't authenticate the user yet.
-      // They will see the Landing Page, which is expected behavior if backend is unreachable.
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const fetchDocuments = async () => {
+  const fetchDocuments = useCallback(async () => {
     try {
       const data = await api.getDocuments();
       if (data.success && Array.isArray(data.documents)) {
         setDocuments(data.documents);
-      } else {
-        setDocuments([]);
+        setDocumentsError("");
       }
     } catch (error) {
       console.error("Failed to fetch documents:", error);
-      setDocuments([]);
+      // Keep whatever is already on screen. Clearing the list here is what made
+      // a transient error look like the user's documents had been deleted.
+      setDocumentsError(error.message);
     }
-  };
+  }, []);
 
-  // Initial check for browser support and block status
-  const checkNotificationPermission = () => {
-      if (!("Notification" in window)) {
-          console.warn("This browser does not support notifications.");
-          return;
-      }
-      if (Notification.permission === "denied") {
-          setNotificationsDenied(true);
-      }
-      // Sync state with local storage
-      const saved = localStorage.getItem("notifications_enabled");
-      if (saved === "true" && Notification.permission === "granted") {
-          setNotificationsEnabled(true);
-      }
-  };
+  // One-time boot: pick up a password reset link, verify the session, and read
+  // the notification permission state.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("reset");
+    if (token) {
+      setResetToken(token);
+      setCurrentAuthPage("reset");
+      // Drop the token from the address bar so it isn't shared or re-used.
+      window.history.replaceState({}, "", window.location.pathname);
+    }
 
-    const handleToggleNotifications = async () => {
-    try {
-        console.log("Toggling notifications. Current state:", { enabled: notificationsEnabled, denied: notificationsDenied });
-        
-        if (notificationsEnabled) {
-            console.log("Disabling notifications...");
-            // Opt out in app state/local storage
-            const sub = JSON.parse(localStorage.getItem("pushSubscription") || "{}");
-            if (sub.endpoint) {
-                await api.optOutNotifications(sub.endpoint);
-                console.log("Opt-out API called.");
-            }
-            setNotificationsEnabled(false);
-            localStorage.setItem("notifications_enabled", "false");
-            console.log("Notifications disabled locally.");
+    if ("Notification" in window) {
+      if (Notification.permission === "denied") setNotificationsDenied(true);
+      if (
+        localStorage.getItem("notifications_enabled") === "true" &&
+        Notification.permission === "granted"
+      ) {
+        setNotificationsEnabled(true);
+      }
+    }
+
+    let cancelled = false;
+    const checkAuth = async () => {
+      if (!localStorage.getItem("token")) {
+        setIsLoading(false);
+        return;
+      }
+      try {
+        const data = await api.getMe();
+        if (cancelled) return;
+        setUser(data.user);
+        setIsAuthenticated(true);
+        fetchDocuments();
+      } catch (err) {
+        if (cancelled) return;
+        // Only discard the token when the server actively rejects it. A network
+        // blip must not sign the user out.
+        if (err.status === 401) {
+          localStorage.removeItem("token");
         } else {
-            console.log("Enabling notifications...");
-            // Check browser support
-            if (!("Notification" in window)) {
-               alert("Your browser does not support notifications. On iPhone, you must use 'Add to Home Screen' to enable this feature.");
-               return;
-            }
-
-            // Check browser permission next
-            if (Notification.permission === "denied") {
-                console.warn("Permission denied by browser.");
-                setNotificationsDenied(true);
-                alert("Notifications are blocked. Please enable them in your browser settings.");
-                return;
-            }
-
-            // Register or Opt In
-            console.log("Calling registerPush from service...");
-            try {
-                const sub = await registerPush();
-                console.log("registerPush result:", sub);
-                
-                if (sub) {
-                    setNotificationsEnabled(true);
-                    setNotificationsDenied(false);
-                    localStorage.setItem("notifications_enabled", "true");
-                    console.log("Notifications enabled successfully.");
-                }
-            } catch (error) {
-                console.error("Enable notifications failed:", error);
-                const msg = error.message || "Unknown error";
-                
-                if (msg.toLowerCase().includes("permission denied")) {
-                     setNotificationsDenied(true);
-                     alert("Permission denied. Please enable notifications in your browser settings and refresh.");
-                } else {
-                     alert(`Failed to enable notifications. Error: ${msg}`);
-                }
-            }
+          console.warn("Session check failed, keeping token:", err.message);
         }
-    } catch (err) {
-        console.error("Notification toggle failed:", err);
-        alert(`An error occurred while toggling notifications: ${err.message || "Unknown error"}`);
+      } finally {
+        if (!cancelled) setIsLoading(false);
+      }
+    };
+
+    checkAuth();
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchDocuments]);
+
+  // Refresh when the tab regains focus, instead of polling every 10 seconds.
+  // The old poll sent 90 requests per 15 minutes and tripped the rate limiter
+  // on its own.
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    const onFocus = () => {
+      if (document.visibilityState === "visible") fetchDocuments();
+    };
+    window.addEventListener("focus", onFocus);
+    document.addEventListener("visibilitychange", onFocus);
+    return () => {
+      window.removeEventListener("focus", onFocus);
+      document.removeEventListener("visibilitychange", onFocus);
+    };
+  }, [isAuthenticated, fetchDocuments]);
+
+  const handleToggleNotifications = async () => {
+    if (notificationsEnabled) {
+      try {
+        await unregisterPush();
+        setNotificationsEnabled(false);
+        notify("Reminders turned off for this device.", "info");
+      } catch (error) {
+        notify(`Couldn't turn reminders off: ${error.message}`, "error");
+      }
+      return;
+    }
+
+    if (!isPushSupported()) {
+      notify(
+        isIosSafari() && !isStandalone()
+          ? "On iPhone, tap Share then 'Add to Home Screen', open DriveDoc from there, and turn reminders on."
+          : "This browser doesn't support notifications.",
+        "error"
+      );
+      return;
+    }
+
+    if (Notification.permission === "denied") {
+      setNotificationsDenied(true);
+      notify("Notifications are blocked in your browser settings. Unblock them, then try again.", "error");
+      return;
+    }
+
+    try {
+      await registerPush();
+      setNotificationsEnabled(true);
+      setNotificationsDenied(false);
+      localStorage.setItem("notifications_enabled", "true");
+      notify("Reminders are on. We'll tell you before anything expires.", "success");
+    } catch (error) {
+      if (error.code === "permission-denied") {
+        setNotificationsDenied(true);
+        notify("You declined notifications. Allow them in your browser settings to turn reminders on.", "error");
+      } else {
+        notify(error.message, "error");
+      }
     }
   };
 
   const handleAuthSuccess = (data) => {
     setUser(data.user);
     setIsAuthenticated(true);
+    setResetToken(null);
+    setCurrentAuthPage("landing");
     fetchDocuments();
   };
 
-  const handleLogout = () => {
-    api.logout();
+  const handleLogout = async () => {
+    await api.logout();
     setIsAuthenticated(false);
     setUser(null);
     setCurrentView("dashboard");
+    setCurrentAuthPage("landing");
     setDocuments([]);
+    setNotificationsEnabled(false);
   };
 
-  const handleAddDocument = async (docData) => {
-    try {
+  const handleSaveDocument = async (docData) => {
+    // Throws on failure so the modal can keep the user's input on screen.
+    if (editingDocument) {
+      const res = await api.updateDocument(editingDocument._id, docData);
+      setDocuments((prev) => prev.map((d) => (d._id === res.document._id ? res.document : d)));
+      notify("Document updated.", "success");
+    } else {
       const res = await api.addDocument(docData);
-      if (res.success && res.document) {
-        setDocuments(prev => [res.document, ...prev]);
-        setIsAddModalOpen(false);
-      }
-    } catch (error) {
-      console.error("Failed to add document:", error);
-      alert(error.message);
+      setDocuments((prev) => [res.document, ...prev]);
+      notify("Document added.", "success");
     }
+    setIsAddModalOpen(false);
+    setEditingDocument(null);
   };
 
   const handleDeleteDocument = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this document?")) return;
+    const doc = documents.find((d) => d._id === id);
+    if (!window.confirm(`Delete your ${doc?.type || "document"}? This can't be undone.`)) return;
     try {
       await api.deleteDocument(id);
-      setDocuments(documents.filter((doc) => doc._id !== id));
+      setDocuments((prev) => prev.filter((d) => d._id !== id));
+      notify("Document deleted.", "success");
     } catch (error) {
-      console.error("Failed to delete document:", error);
+      notify(`Couldn't delete that document: ${error.message}`, "error");
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    );
-  }
+  const handleEditDocument = (doc) => {
+    setEditingDocument(doc);
+    setIsAddModalOpen(true);
+  };
+
+  const handleAccountUpdated = (updatedUser) => {
+    setUser(updatedUser);
+    notify("Profile updated.", "success");
+  };
+
+  const handleAccountDeleted = () => {
+    setIsAuthenticated(false);
+    setUser(null);
+    setDocuments([]);
+    setIsAccountOpen(false);
+    setCurrentAuthPage("landing");
+  };
+
+  if (isLoading) return <LoadingSpinner />;
 
   if (!isAuthenticated) {
+    const legalProps = {
+      onShowPrivacy: () => setCurrentAuthPage("privacy"),
+      onShowTerms: () => setCurrentAuthPage("terms"),
+    };
+
     return (
-      <Suspense fallback={<LoadingSpinner />}>
-        {currentAuthPage === "landing" ? (
-          <LandingPage 
-            onGetStarted={() => setCurrentAuthPage("login")} 
-            onShowPrivacy={() => setCurrentAuthPage("privacy")}
-            onShowTerms={() => setCurrentAuthPage("terms")}
-          />
-        ) : currentAuthPage === "signup" ? (
-          <SignupPage
-            onSignup={handleAuthSuccess}
-            onSwitchToLogin={() => setCurrentAuthPage("login")}
-            onShowPrivacy={() => setCurrentAuthPage("privacy")}
-            onShowTerms={() => setCurrentAuthPage("terms")}
-          />
-        ) : currentAuthPage === "privacy" ? (
-          <PrivacyPolicy onBack={() => setCurrentAuthPage("login")} />
-        ) : currentAuthPage === "terms" ? (
-          <TermsOfService onBack={() => setCurrentAuthPage("login")} />
-        ) : (
-          <LoginPage
-            onLogin={handleAuthSuccess}
-            onSwitchToSignup={() => setCurrentAuthPage("signup")}
-            onShowPrivacy={() => setCurrentAuthPage("privacy")}
-            onShowTerms={() => setCurrentAuthPage("terms")}
-          />
-        )}
-      </Suspense>
+      <>
+        <Suspense fallback={<LoadingSpinner />}>
+          {currentAuthPage === "landing" ? (
+            <LandingPage onGetStarted={() => setCurrentAuthPage("login")} {...legalProps} />
+          ) : currentAuthPage === "signup" ? (
+            <SignupPage
+              onSignup={handleAuthSuccess}
+              onSwitchToLogin={() => setCurrentAuthPage("login")}
+              {...legalProps}
+            />
+          ) : currentAuthPage === "reset" ? (
+            <ResetPasswordPage
+              token={resetToken}
+              onReset={handleAuthSuccess}
+              onBackToLogin={() => {
+                setResetToken(null);
+                setCurrentAuthPage("login");
+              }}
+            />
+          ) : currentAuthPage === "privacy" ? (
+            <PrivacyPolicy onBack={() => setCurrentAuthPage("login")} />
+          ) : currentAuthPage === "terms" ? (
+            <TermsOfService onBack={() => setCurrentAuthPage("login")} />
+          ) : (
+            <LoginPage
+              onLogin={handleAuthSuccess}
+              onSwitchToSignup={() => setCurrentAuthPage("signup")}
+              {...legalProps}
+            />
+          )}
+        </Suspense>
+        <Toast toast={toast} onDismiss={() => setToast(null)} />
+      </>
     );
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Header
-        onAddDocument={() => setIsAddModalOpen(true)}
+        onAddDocument={() => {
+          setEditingDocument(null);
+          setIsAddModalOpen(true);
+        }}
         notificationsEnabled={notificationsEnabled}
         notificationsDenied={notificationsDenied}
         onToggleNotifications={handleToggleNotifications}
         onStartTest={() => setCurrentView("test")}
-        onBookLesson={() => setCurrentView("booking")}
-        onRenewDocuments={() => alert("Renewal feature is currently disabled.")}
+        onFindSchool={() => setCurrentView("schools")}
+        onOpenAccount={() => setIsAccountOpen(true)}
         onLogout={handleLogout}
         user={user}
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {user && user.profileComplete === false && (
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3">
+            <p className="text-sm text-amber-900">
+              Add your phone number and country so we can reach you about reminders.
+            </p>
+            <button
+              onClick={() => setIsAccountOpen(true)}
+              className="rounded-md bg-amber-600 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-amber-700 cursor-pointer"
+            >
+              Finish profile
+            </button>
+          </div>
+        )}
+
         <Suspense fallback={<LoadingSpinner />}>
           {currentView === "dashboard" && (
             <>
               <div className="mb-8">
                 <h2 className="text-3xl font-bold text-gray-900">
-                  {user?.fullName ? `Welcome back, ${user.fullName.split(' ')[0]}!` : 'Dashboard'}
+                  {user?.fullName ? `Welcome back, ${user.fullName.split(" ")[0]}!` : "Dashboard"}
                 </h2>
                 <p className="mt-2 text-gray-600">
                   Here's an overview of your driving documents and upcoming lessons.
                 </p>
               </div>
 
+              {documentsError && (
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-red-200 bg-red-50 px-4 py-3">
+                  <p className="text-sm text-red-800">
+                    Couldn't refresh your documents: {documentsError}
+                  </p>
+                  <button
+                    onClick={fetchDocuments}
+                    className="rounded-md border border-red-300 px-3 py-1.5 text-sm font-medium text-red-700 transition hover:bg-red-100 cursor-pointer"
+                  >
+                    Try again
+                  </button>
+                </div>
+              )}
+
               <StatsGrid documents={documents} />
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2">
-                  <DocumentsList 
-                    documents={documents} 
+                  <DocumentsList
+                    documents={documents}
                     onDelete={handleDeleteDocument}
-                    onAddDocument={() => setIsAddModalOpen(true)}
+                    onEdit={handleEditDocument}
+                    onShowRenewal={setRenewalDocument}
+                    onAddDocument={() => {
+                      setEditingDocument(null);
+                      setIsAddModalOpen(true);
+                    }}
                   />
                 </div>
-                
+
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                  <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                    Practice Theory Test
-                  </h2>
+                  <h2 className="text-lg font-semibold text-gray-900 mb-4">Practice Theory Test</h2>
                   <div className="space-y-4">
                     <p className="text-gray-600 text-sm">
                       Select a category to start practicing for your driving theory test.
@@ -301,7 +385,7 @@ export default function App() {
                               setSelectedCategory(cat.label);
                               setCurrentView("test");
                             }}
-                            className="flex items-center gap-3 p-3 w-full text-left border border-gray-200 rounded-lg hover:bg-gray-50 transition"
+                            className="flex items-center gap-3 p-3 w-full text-left border border-gray-200 rounded-lg hover:bg-gray-50 transition cursor-pointer"
                           >
                             <div className="p-2 bg-blue-50 text-blue-600 rounded-md">
                               <Icon className="w-5 h-5" />
@@ -313,10 +397,10 @@ export default function App() {
                     </div>
                     <button
                       onClick={() => {
-                          setSelectedCategory(null);
-                          setCurrentView("test");
-                      }} 
-                      className="w-full mt-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium"
+                        setSelectedCategory(null);
+                        setCurrentView("test");
+                      }}
+                      className="w-full mt-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium cursor-pointer"
                     >
                       Start Full Practice Test
                     </button>
@@ -331,15 +415,13 @@ export default function App() {
               initialCategory={selectedCategory}
               onComplete={() => setCurrentView("dashboard")}
               onExit={() => {
-                  setSelectedCategory(null);
-                  setCurrentView("dashboard");
+                setSelectedCategory(null);
+                setCurrentView("dashboard");
               }}
             />
           )}
-          
-          {currentView === "booking" && (
-            <BookingPage onBack={() => setCurrentView("dashboard")} />
-          )}
+
+          {currentView === "schools" && <SchoolsPage onBack={() => setCurrentView("dashboard")} />}
         </Suspense>
       </main>
 
@@ -347,11 +429,28 @@ export default function App() {
         {isAddModalOpen && (
           <AddDocumentModal
             isOpen={isAddModalOpen}
-            onClose={() => setIsAddModalOpen(false)}
-            onAdd={handleAddDocument}
+            document={editingDocument}
+            onClose={() => {
+              setIsAddModalOpen(false);
+              setEditingDocument(null);
+            }}
+            onSave={handleSaveDocument}
+          />
+        )}
+        {renewalDocument && (
+          <RenewalGuideModal document={renewalDocument} onClose={() => setRenewalDocument(null)} />
+        )}
+        {isAccountOpen && (
+          <AccountModal
+            user={user}
+            onClose={() => setIsAccountOpen(false)}
+            onUpdated={handleAccountUpdated}
+            onDeleted={handleAccountDeleted}
           />
         )}
       </Suspense>
+
+      <Toast toast={toast} onDismiss={() => setToast(null)} />
     </div>
   );
 }

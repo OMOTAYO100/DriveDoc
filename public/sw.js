@@ -1,33 +1,40 @@
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', (event) => event.waitUntil(clients.claim()));
+
 self.addEventListener('push', function (event) {
-  const data = event.data ? event.data.json() : {};
-  const title = data.title || 'Notification';
-  const options = data.options || {};
-  
-  if (!options.body && data.body) {
-    options.body = data.body;
+  let data = {};
+  try {
+    data = event.data ? event.data.json() : {};
+  } catch {
+    data = { title: 'DriveDoc', options: { body: event.data ? event.data.text() : '' } };
   }
-  
+
+  const title = data.title || 'DriveDoc';
+  const options = { ...(data.options || {}) };
+
+  if (!options.body && data.body) options.body = data.body;
+  if (!options.icon) options.icon = '/icons/icon-192x192.png';
+  if (!options.badge) options.badge = '/icons/badge-72x72.png';
+
   event.waitUntil(self.registration.showNotification(title, options));
 });
 
 self.addEventListener('notificationclick', function (event) {
   event.notification.close();
-  
-  const targetUrl = (event.notification.data && event.notification.data.url) 
-    ? event.notification.data.url 
-    : '/';
-    
+
+  const targetUrl = event.notification.data?.url || '/';
+
   event.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function (clientList) {
-      for (let i = 0; i < clientList.length; i++) {
-        const client = clientList[i];
-        if (client.url === targetUrl && 'focus' in client) {
+      // Focus any window already on this origin rather than requiring an exact
+      // URL match — the app is a single page, so the path rarely lines up.
+      for (const client of clientList) {
+        if ('focus' in client) {
+          if ('navigate' in client) client.navigate(targetUrl).catch(() => {});
           return client.focus();
         }
       }
-      if (clients.openWindow) {
-        return clients.openWindow(targetUrl);
-      }
+      if (clients.openWindow) return clients.openWindow(targetUrl);
     })
   );
 });

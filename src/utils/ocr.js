@@ -52,7 +52,7 @@ export const scanDocument = async (imageSource) => {
             details.expiryDate = date.toISOString().split('T')[0];
             break;
           }
-        } catch (e) {
+        } catch {
           console.warn('Failed to parse date:', dateStr);
         }
       }

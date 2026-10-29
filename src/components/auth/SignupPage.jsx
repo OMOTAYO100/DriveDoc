@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin } from 'lucide-react';
+import { GoogleLogin } from '@react-oauth/google';
+import { ALL_COUNTRIES } from '../../utils/countryData';
 import { api } from '../../services/api';
 
 export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, onShowTerms }) {
@@ -11,22 +13,12 @@ export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, o
     password: '',
     confirmPassword: ''
   });
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState('');
-
-  const countries = [
-    'Nigeria',
-    'United States',
-    'United Kingdom',
-    'Ghana',
-    'South Africa',
-    'Kenya',
-    'Canada',
-    'Australia'
-  ];
 
   const validateForm = () => {
     const newErrors = {};
@@ -67,244 +59,301 @@ export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, o
       newErrors.confirmPassword = 'Passwords do not match';
     }
 
+    // Consent is now required and recorded. The checkbox used to be
+    // uncontrolled and never validated, so nobody had actually agreed to
+    // anything we could point to later.
+    if (!termsAccepted) {
+      newErrors.terms = 'Please accept the Terms of Service and Privacy Policy';
+    }
+
     setErrors(newErrors);
-    setApiError('');
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (validateForm()) {
-      setIsLoading(true);
-      setApiError('');
-      
-      try {
-        const { confirmPassword: CONFIRM_UNUSED, ...signupData } = formData;
-        const apiData = { ...signupData, name: signupData.fullName };
-        
-        const data = await api.signup(apiData);
-        onSignup(data);
-      } catch (err) {
-        setApiError(err.message || 'Signup failed. Please try again.');
-      } finally {
-        setIsLoading(false);
-      }
+    setApiError('');
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+    try {
+      const data = await api.signup({
+        fullName: formData.fullName.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        country: formData.country,
+        password: formData.password,
+        termsAccepted: true
+      });
+      onSignup(data);
+    } catch (err) {
+      setApiError(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
+  const handleGoogleSuccess = async (credentialResponse) => {
+    setApiError('');
+    setIsLoading(true);
+    try {
+      const data = await api.oauthGoogle(credentialResponse.credential);
+      onSignup(data);
+    } catch (err) {
+      setApiError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const inputCls = (hasError, pr = 'pr-4') =>
+    `w-full pl-10 ${pr} py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+      hasError ? 'border-red-500' : 'border-gray-300'
+    }`;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="max-w-md w-full">
+    <div className="flex min-h-screen items-center justify-center bg-linear-to-br from-blue-50 to-indigo-100 p-4">
+      <div className="w-full max-w-md">
         {/* Logo/Brand */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">DriveDoc</h1>
+        <div className="mb-8 text-center">
+          <h1 className="mb-2 text-4xl font-bold text-gray-900">
+            Drive<span className="text-blue-600">Doc</span>
+          </h1>
           <p className="text-gray-600">Create your account to get started</p>
         </div>
 
         {/* Signup Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Create Account</h2>
+        <div className="rounded-2xl bg-white p-8 shadow-xl">
+          <h2 className="mb-6 text-2xl font-bold text-gray-900">Create Account</h2>
 
           {apiError && (
-            <div className="mb-4 p-3 bg-red-50 text-red-500 rounded-lg text-sm border border-red-200">
+            <div className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-600">
               {apiError}
             </div>
           )}
 
-          <div className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
             {/* Full Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="su-name" className="mb-2 block text-sm font-medium text-gray-700">
                 Full Name
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <User className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
+                  id="su-name"
                   type="text"
                   value={formData.fullName}
-                  onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.fullName ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="John Doe"
+                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                  autoComplete="name"
+                  className={inputCls(errors.fullName)}
+                  placeholder="Jane Doe"
                 />
               </div>
-              {errors.fullName && (
-                <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
-              )}
+              {errors.fullName && <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>}
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="su-email" className="mb-2 block text-sm font-medium text-gray-700">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
+                  id="su-email"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.email ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  autoComplete="email"
+                  className={inputCls(errors.email)}
                   placeholder="you@example.com"
                 />
               </div>
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-              )}
+              {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
             </div>
 
-            {/* Phone Number */}
+            {/* Phone */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="su-phone" className="mb-2 block text-sm font-medium text-gray-700">
                 Phone Number
               </label>
               <div className="relative">
-                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Phone className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
+                  id="su-phone"
                   type="tel"
                   value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.phone ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  autoComplete="tel"
+                  className={inputCls(errors.phone)}
                   placeholder="+234 800 000 0000"
                 />
               </div>
-              {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-              )}
+              {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
             </div>
 
-            {/* Country */}
+            {/* Country — the same full list used when adding a document, so a
+                user whose country is supported for documents can also sign up. */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="su-country" className="mb-2 block text-sm font-medium text-gray-700">
                 Country
               </label>
               <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <select
+                  id="su-country"
                   value={formData.country}
-                  onChange={(e) => setFormData({...formData, country: e.target.value})}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.country ? 'border-red-500' : 'border-gray-300'
-                  }`}
+                  onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                  autoComplete="country-name"
+                  className={`${inputCls(errors.country)} cursor-pointer`}
                 >
                   <option value="">Select your country</option>
-                  {countries.map(country => (
-                    <option key={country} value={country}>{country}</option>
+                  {ALL_COUNTRIES.map((country) => (
+                    <option key={country} value={country}>
+                      {country}
+                    </option>
                   ))}
                 </select>
               </div>
-              {errors.country && (
-                <p className="text-red-500 text-sm mt-1">{errors.country}</p>
-              )}
+              {errors.country && <p className="mt-1 text-sm text-red-500">{errors.country}</p>}
             </div>
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="su-password" className="mb-2 block text-sm font-medium text-gray-700">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Lock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
+                  id="su-password"
                   type={showPassword ? 'text' : 'password'}
                   value={formData.password}
-                  onChange={(e) => setFormData({...formData, password: e.target.value})}
-                  className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.password ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="Create a strong password"
+                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                  autoComplete="new-password"
+                  className={inputCls(errors.password, 'pr-12')}
+                  placeholder="At least 8 characters"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 transition hover:text-gray-600 cursor-pointer"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
-              {errors.password && (
-                <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+              {errors.password ? (
+                <p className="mt-1 text-sm text-red-500">{errors.password}</p>
+              ) : (
+                <p className="mt-1 text-xs text-gray-500">
+                  Use at least 8 characters with an uppercase letter, a lowercase letter and a number.
+                </p>
               )}
             </div>
 
             {/* Confirm Password */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="su-confirm" className="mb-2 block text-sm font-medium text-gray-700">
                 Confirm Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Lock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
+                  id="su-confirm"
                   type={showConfirmPassword ? 'text' : 'password'}
                   value={formData.confirmPassword}
-                  onChange={(e) => setFormData({...formData, confirmPassword: e.target.value})}
-                  className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="Confirm your password"
+                  onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                  autoComplete="new-password"
+                  className={inputCls(errors.confirmPassword, 'pr-12')}
+                  placeholder="Type your password again"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
+                  aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 transition hover:text-gray-600 cursor-pointer"
                 >
-                  {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.confirmPassword}</p>
               )}
             </div>
 
             {/* Terms & Conditions */}
-            <div className="flex items-start">
-              <input
-                type="checkbox"
-                id="terms"
-                className="mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
-              />
-              <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
-                I agree to the{' '}
-                <button 
-                  onClick={onShowTerms}
-                  type="button"
-                  className="text-blue-600 hover:text-blue-700 font-medium cursor-pointer"
-                >
-                  Terms of Service
-                </button>{' '}
-                and{' '}
-                <button 
-                  onClick={onShowPrivacy}
-                  type="button"
-                  className="text-blue-600 hover:text-blue-700 font-medium cursor-pointer"
-                >
-                  Privacy Policy
-                </button>
-              </label>
+            <div>
+              <div className="flex items-start">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={termsAccepted}
+                  onChange={(e) => setTermsAccepted(e.target.checked)}
+                  className="mt-1 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                />
+                <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
+                  I agree to the{' '}
+                  <button
+                    onClick={onShowTerms}
+                    type="button"
+                    className="font-medium text-blue-600 transition hover:text-blue-700 cursor-pointer"
+                  >
+                    Terms of Service
+                  </button>{' '}
+                  and{' '}
+                  <button
+                    onClick={onShowPrivacy}
+                    type="button"
+                    className="font-medium text-blue-600 transition hover:text-blue-700 cursor-pointer"
+                  >
+                    Privacy Policy
+                  </button>
+                </label>
+              </div>
+              {errors.terms && <p className="mt-1 text-sm text-red-500">{errors.terms}</p>}
             </div>
 
             {/* Sign Up Button */}
             <button
-              onClick={handleSubmit}
+              type="submit"
               disabled={isLoading}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+              className="w-full rounded-lg bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
             >
               {isLoading ? 'Creating account...' : 'Create Account'}
             </button>
+          </form>
+
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300" />
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="bg-white px-2 text-gray-500">Or continue with</span>
+            </div>
           </div>
 
+          <div className="flex justify-center">
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={() => setApiError('Google sign-up failed. Please try again.')}
+              useOneTap={false}
+              width="320"
+              text="signup_with"
+              shape="rectangular"
+            />
+          </div>
+          <p className="mt-3 text-center text-xs text-gray-500">
+            Continuing with Google means you accept our Terms of Service and Privacy Policy.
+          </p>
+
           {/* Login Link */}
-          <p className="text-center text-sm text-gray-600 mt-6">
+          <p className="mt-6 text-center text-sm text-gray-600">
             Already have an account?{' '}
             <button
               onClick={onSwitchToLogin}
-              className="text-blue-600 hover:text-blue-700 font-semibold cursor-pointer"
+              className="font-semibold text-blue-600 transition hover:text-blue-700 cursor-pointer"
             >
               Sign in
             </button>
@@ -312,11 +361,21 @@ export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, o
         </div>
 
         {/* Footer */}
-        <div className="text-center text-sm text-gray-500 mt-8">
+        <div className="mt-8 text-center text-sm text-gray-500">
           <p>© 2026 DriveDoc. All rights reserved.</p>
           <div className="mt-2 space-x-4">
-            <button onClick={onShowPrivacy} className="hover:text-blue-600 underline cursor-pointer">Privacy Policy</button>
-            <button onClick={onShowTerms} className="hover:text-blue-600 underline cursor-pointer">Terms of Service</button>
+            <button
+              onClick={onShowPrivacy}
+              className="underline transition hover:text-blue-600 cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={onShowTerms}
+              className="underline transition hover:text-blue-600 cursor-pointer"
+            >
+              Terms of Service
+            </button>
           </div>
         </div>
       </div>

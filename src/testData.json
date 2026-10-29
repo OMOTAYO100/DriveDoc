@@ -5456,7 +5456,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stop.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stop.jpg"
     },
     {
       "id": "IMP1001",
@@ -5484,7 +5484,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/turnrightahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/turnrightahead.jpg"
     },
     {
       "id": "IMP1002",
@@ -5512,7 +5512,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramcycle.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramcycle.jpg"
     },
     {
       "id": "IMP1003",
@@ -5540,7 +5540,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/motorwayentry.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/motorwayentry.jpg"
     },
     {
       "id": "IMP1004",
@@ -5568,7 +5568,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/motorwayend.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/motorwayend.jpg"
     },
     {
       "id": "IMP1005",
@@ -5596,7 +5596,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/endofmotorway.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/endofmotorway.jpg"
     },
     {
       "id": "IMP1006",
@@ -5624,7 +5624,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/300meterexit.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/300meterexit.jpg"
     },
     {
       "id": "IMP1007",
@@ -5652,7 +5652,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/200meterexit.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/200meterexit.jpg"
     },
     {
       "id": "IMP1008",
@@ -5680,7 +5680,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/100meterexit.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/100meterexit.jpg"
     },
     {
       "id": "IMP1009",
@@ -5708,7 +5708,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/cashier.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/cashier.jpg"
     },
     {
       "id": "IMP1010",
@@ -5736,7 +5736,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roadworks.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roadworks.jpg"
     },
     {
       "id": "IMP1011",
@@ -5764,7 +5764,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/uneven.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/uneven.jpg"
     },
     {
       "id": "IMP1012",
@@ -5792,7 +5792,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/keepleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/keepleft.jpg"
     },
     {
       "id": "IMP1013",
@@ -5820,7 +5820,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/slipperyroad.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/slipperyroad.jpg"
     },
     {
       "id": "IMP1014",
@@ -5848,7 +5848,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/narrowleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/narrowleft.jpg"
     },
     {
       "id": "IMP1015",
@@ -5876,7 +5876,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/narrowright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/narrowright.jpg"
     },
     {
       "id": "IMP1016",
@@ -5904,7 +5904,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/narrowbothsides.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/narrowbothsides.jpg"
     },
     {
       "id": "IMP1017",
@@ -5932,7 +5932,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/flagmanahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/flagmanahead.jpg"
     },
     {
       "id": "IMP1018",
@@ -5960,7 +5960,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/temporarytrafficsignals.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/temporarytrafficsignals.jpg"
     },
     {
       "id": "IMP1019",
@@ -5988,7 +5988,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/twowaytraffic.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/twowaytraffic.jpg"
     },
     {
       "id": "IMP1020",
@@ -6016,7 +6016,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/nearsidetwoclosed.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/nearsidetwoclosed.jpg"
     },
     {
       "id": "IMP1021",
@@ -6044,7 +6044,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/nearsidethreeclosed.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/nearsidethreeclosed.jpg"
     },
     {
       "id": "IMP1022",
@@ -6072,7 +6072,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/loosechippings.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/loosechippings.jpg"
     },
     {
       "id": "IMP1023",
@@ -6100,7 +6100,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/keepright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/keepright.jpg"
     },
     {
       "id": "IMP1024",
@@ -6128,7 +6128,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/offsidethreeclosed.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/offsidethreeclosed.jpg"
     },
     {
       "id": "IMP1025",
@@ -6156,7 +6156,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/queueslikely.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/queueslikely.jpg"
     },
     {
       "id": "IMP1026",
@@ -6184,7 +6184,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/unevensurface.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/unevensurface.jpg"
     },
     {
       "id": "IMP1027",
@@ -6212,7 +6212,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/obstruction.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/obstruction.jpg"
     },
     {
       "id": "IMP1028",
@@ -6240,7 +6240,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pedestriancrossright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pedestriancrossright.jpg"
     },
     {
       "id": "IMP1029",
@@ -6268,7 +6268,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/go.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/go.jpg"
     },
     {
       "id": "IMP1030",
@@ -6296,7 +6296,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roadworksstop.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roadworksstop.jpg"
     },
     {
       "id": "IMP1031",
@@ -6324,7 +6324,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/endofdetour.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/endofdetour.jpg"
     },
     {
       "id": "IMP1032",
@@ -6352,7 +6352,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/crossleftlane.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/crossleftlane.jpg"
     },
     {
       "id": "IMP1033",
@@ -6380,7 +6380,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/crossrightlane.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/crossrightlane.jpg"
     },
     {
       "id": "IMP1034",
@@ -6408,7 +6408,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/passeitherside.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/passeitherside.jpg"
     },
     {
       "id": "IMP1035",
@@ -6436,7 +6436,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/startofobstruction.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/startofobstruction.jpg"
     },
     {
       "id": "IMP1036",
@@ -6464,7 +6464,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/endofobstruction.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/endofobstruction.jpg"
     },
     {
       "id": "IMP1037",
@@ -6492,7 +6492,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/signalturnright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/signalturnright.jpg"
     },
     {
       "id": "IMP1038",
@@ -6520,7 +6520,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/signalslowdown.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/signalslowdown.jpg"
     },
     {
       "id": "IMP1039",
@@ -6548,7 +6548,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/signalstraighton.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/signalstraighton.jpg"
     },
     {
       "id": "IMP1040",
@@ -6576,7 +6576,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/signalturnleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/signalturnleft.jpg"
     },
     {
       "id": "IMP1041",
@@ -6604,7 +6604,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/frontturnright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/frontturnright.jpg"
     },
     {
       "id": "IMP1042",
@@ -6632,7 +6632,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/frontturnleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/frontturnleft.jpg"
     },
     {
       "id": "IMP1043",
@@ -6660,7 +6660,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carturnleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carturnleft.jpg"
     },
     {
       "id": "IMP1044",
@@ -6688,7 +6688,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carturnright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carturnright.jpg"
     },
     {
       "id": "IMP1045",
@@ -6716,7 +6716,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noentry.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noentry.jpg"
     },
     {
       "id": "IMP1046",
@@ -6744,7 +6744,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carslowdown.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carslowdown.jpg"
     },
     {
       "id": "IMP1047",
@@ -6772,7 +6772,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/oncomingturnleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/oncomingturnleft.jpg"
     },
     {
       "id": "IMP1048",
@@ -6800,7 +6800,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/oncomingturnright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/oncomingturnright.jpg"
     },
     {
       "id": "IMP1049",
@@ -6828,7 +6828,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/oncomingstraight.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/oncomingstraight.jpg"
     },
     {
       "id": "IMP1050",
@@ -6856,7 +6856,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/gardastop.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/gardastop.jpg"
     },
     {
       "id": "IMP1051",
@@ -6884,7 +6884,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/gardastopbehind.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/gardastopbehind.jpg"
     },
     {
       "id": "IMP1052",
@@ -6912,7 +6912,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stopfrontbehind.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stopfrontbehind.jpg"
     },
     {
       "id": "IMP1053",
@@ -6940,7 +6940,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/gardaeitherside.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/gardaeitherside.jpg"
     },
     {
       "id": "IMP1054",
@@ -6968,7 +6968,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/gardafrontproceed.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/gardafrontproceed.jpg"
     },
     {
       "id": "IMP1055",
@@ -6996,7 +6996,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/zebracrossing.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/zebracrossing.jpg"
     },
     {
       "id": "IMP1056",
@@ -7024,7 +7024,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noright.jpg"
     },
     {
       "id": "IMP1057",
@@ -7052,7 +7052,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noparkingarea.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noparkingarea.jpg"
     },
     {
       "id": "IMP1058",
@@ -7080,7 +7080,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noentryunlessclear.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noentryunlessclear.jpg"
     },
     {
       "id": "IMP1059",
@@ -7108,7 +7108,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
     },
     {
       "id": "IMP1060",
@@ -7136,7 +7136,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/whitearrows.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/whitearrows.jpg"
     },
     {
       "id": "IMP1061",
@@ -7164,7 +7164,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/parkingnotallowedattimes.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/parkingnotallowedattimes.jpg"
     },
     {
       "id": "IMP1062",
@@ -7192,7 +7192,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/brokensingleline.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/brokensingleline.jpg"
     },
     {
       "id": "IMP1063",
@@ -7220,7 +7220,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/continouswhitelinesahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/continouswhitelinesahead.jpg"
     },
     {
       "id": "IMP1064",
@@ -7248,7 +7248,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/overtakeifsafetodoso.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/overtakeifsafetodoso.jpg"
     },
     {
       "id": "IMP1065",
@@ -7276,7 +7276,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/maynotcross.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/maynotcross.jpg"
     },
     {
       "id": "IMP1066",
@@ -7304,7 +7304,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noentrymarking.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noentrymarking.jpg"
     },
     {
       "id": "IMP1067",
@@ -7332,7 +7332,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noleft.jpg"
     },
     {
       "id": "IMP1068",
@@ -7360,7 +7360,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/parkingprohibitedalltimes.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/parkingprohibitedalltimes.jpg"
     },
     {
       "id": "IMP1069",
@@ -7388,7 +7388,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/hardshoulder.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/hardshoulder.jpg"
     },
     {
       "id": "IMP1070",
@@ -7416,7 +7416,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/ambertrafficlight.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/ambertrafficlight.jpg"
     },
     {
       "id": "IMP1071",
@@ -7444,7 +7444,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/greenrightlight.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/greenrightlight.jpg"
     },
     {
       "id": "IMP1072",
@@ -7472,7 +7472,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/greenleftright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/greenleftright.jpg"
     },
     {
       "id": "IMP1073",
@@ -7500,7 +7500,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/redtrafficlight.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/redtrafficlight.jpg"
     },
     {
       "id": "IMP1074",
@@ -7528,7 +7528,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/greentrafficlight.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/greentrafficlight.jpg"
     },
     {
       "id": "IMP1075",
@@ -7610,7 +7610,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/flashingleftamberlight.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/flashingleftamberlight.jpg"
     },
     {
       "id": "IMP1078",
@@ -7638,7 +7638,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/nouturn.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/nouturn.jpg"
     },
     {
       "id": "IMP1079",
@@ -7936,7 +7936,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/30kmh.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/30kmh.jpg"
     },
     {
       "id": "IMP1090",
@@ -8234,7 +8234,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/50kmh.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/50kmh.jpg"
     },
     {
       "id": "IMP1101",
@@ -8262,7 +8262,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/overhangingload.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/overhangingload.jpg"
     },
     {
       "id": "IMP1102",
@@ -8533,7 +8533,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stop.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stop.jpg"
     },
     {
       "id": "IMP1112",
@@ -8561,7 +8561,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/60kmh.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/60kmh.jpg"
     },
     {
       "id": "IMP1113",
@@ -8724,7 +8724,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/closeeyesidewalk.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/closeeyesidewalk.jpg"
     },
     {
       "id": "IMP1119",
@@ -8752,7 +8752,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/bicyclesidewalk.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/bicyclesidewalk.jpg"
     },
     {
       "id": "IMP1120",
@@ -8780,7 +8780,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carbicycle1.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carbicycle1.jpg"
     },
     {
       "id": "IMP1121",
@@ -8808,7 +8808,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation2.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation2.jpg"
     },
     {
       "id": "IMP1122",
@@ -8836,7 +8836,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation3.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation3.jpg"
     },
     {
       "id": "IMP1123",
@@ -8864,7 +8864,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/80kmh.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/80kmh.jpg"
     },
     {
       "id": "IMP1124",
@@ -8892,7 +8892,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation4.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation4.jpg"
     },
     {
       "id": "IMP1125",
@@ -8920,7 +8920,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation5.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation5.jpg"
     },
     {
       "id": "IMP1126",
@@ -8948,7 +8948,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation6.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation6.jpg"
     },
     {
       "id": "IMP1127",
@@ -8976,7 +8976,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation7.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation7.jpg"
     },
     {
       "id": "IMP1128",
@@ -9004,7 +9004,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation8.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation8.jpg"
     },
     {
       "id": "IMP1129",
@@ -9032,7 +9032,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation9.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation9.jpg"
     },
     {
       "id": "IMP1130",
@@ -9060,7 +9060,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation10.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation10.jpg"
     },
     {
       "id": "IMP1131",
@@ -9088,7 +9088,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation11.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation11.jpg"
     },
     {
       "id": "IMP1132",
@@ -9116,7 +9116,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation12.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation12.jpg"
     },
     {
       "id": "IMP1133",
@@ -9144,7 +9144,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation13.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation13.jpg"
     },
     {
       "id": "IMP1134",
@@ -9172,7 +9172,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/100kmh.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/100kmh.jpg"
     },
     {
       "id": "IMP1135",
@@ -9200,7 +9200,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation14.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation14.jpg"
     },
     {
       "id": "IMP1136",
@@ -9228,7 +9228,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation15.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation15.jpg"
     },
     {
       "id": "IMP1137",
@@ -9256,7 +9256,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation16.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation16.jpg"
     },
     {
       "id": "IMP1138",
@@ -9284,7 +9284,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation17.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation17.jpg"
     },
     {
       "id": "IMP1139",
@@ -9312,7 +9312,7 @@
       "difficulty": "Intermediate",
       "category": "Other types of vehicle",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation18.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation18.jpg"
     },
     {
       "id": "IMP1140",
@@ -9340,7 +9340,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation19.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation19.jpg"
     },
     {
       "id": "IMP1141",
@@ -9368,7 +9368,7 @@
       "difficulty": "Intermediate",
       "category": "Safety margins",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation20.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation20.jpg"
     },
     {
       "id": "IMP1142",
@@ -9396,7 +9396,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation21.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation21.jpg"
     },
     {
       "id": "IMP1143",
@@ -9424,7 +9424,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation22.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation22.jpg"
     },
     {
       "id": "IMP1144",
@@ -9452,7 +9452,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation23.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation23.jpg"
     },
     {
       "id": "IMP1145",
@@ -9480,7 +9480,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/120kmh.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/120kmh.jpg"
     },
     {
       "id": "IMP1146",
@@ -9508,7 +9508,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation24.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation24.jpg"
     },
     {
       "id": "IMP1147",
@@ -9536,7 +9536,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation25.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation25.jpg"
     },
     {
       "id": "IMP1148",
@@ -9564,7 +9564,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation26.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation26.jpg"
     },
     {
       "id": "IMP1149",
@@ -9592,7 +9592,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation27.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation27.jpg"
     },
     {
       "id": "IMP1150",
@@ -9620,7 +9620,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation28.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation28.jpg"
     },
     {
       "id": "IMP1151",
@@ -9648,7 +9648,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation29.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation29.jpg"
     },
     {
       "id": "IMP1152",
@@ -9676,7 +9676,7 @@
       "difficulty": "Intermediate",
       "category": "Rules of the road",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
     },
     {
       "id": "IMP1153",
@@ -9704,7 +9704,7 @@
       "difficulty": "Intermediate",
       "category": "Rules of the road",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
     },
     {
       "id": "IMP1154",
@@ -9732,7 +9732,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation30.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation30.jpg"
     },
     {
       "id": "IMP1155",
@@ -9760,7 +9760,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation31.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation31.jpg"
     },
     {
       "id": "IMP1156",
@@ -9788,7 +9788,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/parking.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/parking.jpg"
     },
     {
       "id": "IMP1157",
@@ -9816,7 +9816,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pooorlylitstreet.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pooorlylitstreet.jpg"
     },
     {
       "id": "IMP1158",
@@ -9844,7 +9844,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pooorlylitstreet.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pooorlylitstreet.jpg"
     },
     {
       "id": "IMP1159",
@@ -9872,7 +9872,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation32.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation32.jpg"
     },
     {
       "id": "IMP1160",
@@ -9900,7 +9900,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation32.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation32.jpg"
     },
     {
       "id": "IMP1161",
@@ -9928,7 +9928,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/oncomingheadlights.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/oncomingheadlights.jpg"
     },
     {
       "id": "IMP1162",
@@ -9956,7 +9956,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction1.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction1.jpg"
     },
     {
       "id": "IMP1163",
@@ -9984,7 +9984,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation33.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation33.jpg"
     },
     {
       "id": "IMP1164",
@@ -10012,7 +10012,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation33.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation33.jpg"
     },
     {
       "id": "IMP1165",
@@ -10040,7 +10040,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
     },
     {
       "id": "IMP1166",
@@ -10068,7 +10068,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
     },
     {
       "id": "IMP1167",
@@ -10096,7 +10096,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/parkingprohibited.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/parkingprohibited.jpg"
     },
     {
       "id": "IMP1168",
@@ -10124,7 +10124,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
     },
     {
       "id": "IMP1169",
@@ -10152,7 +10152,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
     },
     {
       "id": "IMP1170",
@@ -10180,7 +10180,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
     },
     {
       "id": "IMP1171",
@@ -10208,7 +10208,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/browofhill.jpg"
     },
     {
       "id": "IMP1172",
@@ -10236,7 +10236,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/backofbus.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/backofbus.jpg"
     },
     {
       "id": "IMP1173",
@@ -10264,7 +10264,7 @@
       "difficulty": "Intermediate",
       "category": "Motorway rules",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation34.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation34.jpg"
     },
     {
       "id": "IMP1174",
@@ -10292,7 +10292,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation35.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation35.jpg"
     },
     {
       "id": "IMP1175",
@@ -10320,7 +10320,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation35.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation35.jpg"
     },
     {
       "id": "IMP1176",
@@ -10348,7 +10348,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation36.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation36.jpg"
     },
     {
       "id": "IMP1177",
@@ -10376,7 +10376,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation37.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation37.jpg"
     },
     {
       "id": "IMP1178",
@@ -10404,7 +10404,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/clearway.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/clearway.jpg"
     },
     {
       "id": "IMP1179",
@@ -10432,7 +10432,7 @@
       "difficulty": "Intermediate",
       "category": "Safety margins",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/heavyrainroad.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/heavyrainroad.jpg"
     },
     {
       "id": "IMP1180",
@@ -10460,7 +10460,7 @@
       "difficulty": "Intermediate",
       "category": "Safety margins",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/heavyrainroad.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/heavyrainroad.jpg"
     },
     {
       "id": "IMP1181",
@@ -10488,7 +10488,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation38.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation38.jpg"
     },
     {
       "id": "IMP1182",
@@ -10516,7 +10516,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation38.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation38.jpg"
     },
     {
       "id": "IMP1183",
@@ -10544,7 +10544,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation39.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation39.jpg"
     },
     {
       "id": "IMP1184",
@@ -10572,7 +10572,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation40.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation40.jpg"
     },
     {
       "id": "IMP1185",
@@ -10600,7 +10600,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation41.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation41.jpg"
     },
     {
       "id": "IMP1186",
@@ -10628,7 +10628,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation42.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation42.jpg"
     },
     {
       "id": "IMP1187",
@@ -10656,7 +10656,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation42.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation42.jpg"
     },
     {
       "id": "IMP1188",
@@ -10684,7 +10684,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation43.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation43.jpg"
     },
     {
       "id": "IMP1189",
@@ -10712,7 +10712,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/diskparking.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/diskparking.jpg"
     },
     {
       "id": "IMP1190",
@@ -10740,7 +10740,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation44.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation44.jpg"
     },
     {
       "id": "IMP1191",
@@ -10768,7 +10768,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation45.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation45.jpg"
     },
     {
       "id": "IMP1192",
@@ -10796,7 +10796,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation46.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation46.jpg"
     },
     {
       "id": "IMP1193",
@@ -10824,7 +10824,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation47.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation47.jpg"
     },
     {
       "id": "IMP1194",
@@ -10852,7 +10852,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation48.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation48.jpg"
     },
     {
       "id": "IMP1195",
@@ -10880,7 +10880,7 @@
       "difficulty": "Intermediate",
       "category": "Vulnerable road users",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation49.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation49.jpg"
     },
     {
       "id": "IMP1196",
@@ -10908,7 +10908,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation50.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation50.jpg"
     },
     {
       "id": "IMP1197",
@@ -10936,7 +10936,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation51.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation51.jpg"
     },
     {
       "id": "IMP1198",
@@ -10964,7 +10964,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation52.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation52.jpg"
     },
     {
       "id": "IMP1199",
@@ -10992,7 +10992,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation53.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation53.jpg"
     },
     {
       "id": "IMP1200",
@@ -11020,7 +11020,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/taxirank.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/taxirank.jpg"
     },
     {
       "id": "IMP1201",
@@ -11048,7 +11048,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation54.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation54.jpg"
     },
     {
       "id": "IMP1202",
@@ -11076,7 +11076,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction2.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction2.jpg"
     },
     {
       "id": "IMP1203",
@@ -11104,7 +11104,7 @@
       "difficulty": "Intermediate",
       "category": "Rules of the road",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction3.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction3.jpg"
     },
     {
       "id": "IMP1204",
@@ -11132,7 +11132,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction3.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction3.jpg"
     },
     {
       "id": "IMP1205",
@@ -11322,7 +11322,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/cycletrack.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/cycletrack.jpg"
     },
     {
       "id": "IMP1212",
@@ -11620,7 +11620,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stop.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stop.jpg"
     },
     {
       "id": "IMP1223",
@@ -11648,7 +11648,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharedtrack.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharedtrack.jpg"
     },
     {
       "id": "IMP1224",
@@ -11946,7 +11946,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stopcrossing.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stopcrossing.jpg"
     },
     {
       "id": "IMP1235",
@@ -11974,7 +11974,7 @@
       "difficulty": "Intermediate",
       "category": "Rules of the road",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/wetskiddy.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/wetskiddy.jpg"
     },
     {
       "id": "IMP1236",
@@ -12245,7 +12245,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pedestrianisedstreet.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pedestrianisedstreet.jpg"
     },
     {
       "id": "IMP1246",
@@ -12543,7 +12543,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/3tonnemax.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/3tonnemax.jpg"
     },
     {
       "id": "IMP1257",
@@ -12841,7 +12841,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/max10tonnes.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/max10tonnes.jpg"
     },
     {
       "id": "IMP1268",
@@ -13139,7 +13139,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/5axel.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/5axel.jpg"
     },
     {
       "id": "IMP1279",
@@ -13437,7 +13437,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/maxheight.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/maxheight.jpg"
     },
     {
       "id": "IMP1290",
@@ -13735,7 +13735,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/maxparkingweight.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/maxparkingweight.jpg"
     },
     {
       "id": "IMP1301",
@@ -14033,7 +14033,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noovertaking.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/noovertaking.jpg"
     },
     {
       "id": "IMP1312",
@@ -14331,7 +14331,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslanetime.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslanetime.jpg"
     },
     {
       "id": "IMP1323",
@@ -14629,7 +14629,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/yield.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/yield.jpg"
     },
     {
       "id": "IMP1334",
@@ -14657,7 +14657,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslane.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslane.jpg"
     },
     {
       "id": "IMP1335",
@@ -14955,7 +14955,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslaneleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslaneleft.jpg"
     },
     {
       "id": "IMP1346",
@@ -15253,7 +15253,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslaneaheadright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslaneaheadright.jpg"
     },
     {
       "id": "IMP1357",
@@ -15551,7 +15551,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslaneright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/buslaneright.jpg"
     },
     {
       "id": "IMP1368",
@@ -15849,7 +15849,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/contraflowbuslane.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/contraflowbuslane.jpg"
     },
     {
       "id": "IMP1379",
@@ -16147,7 +16147,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramlaneleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramlaneleft.jpg"
     },
     {
       "id": "IMP1390",
@@ -16445,7 +16445,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramlaneright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramlaneright.jpg"
     },
     {
       "id": "IMP1401",
@@ -16743,7 +16743,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/junctionlesser.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/junctionlesser.jpg"
     },
     {
       "id": "IMP1412",
@@ -17041,7 +17041,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/mainbearleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/mainbearleft.jpg"
     },
     {
       "id": "IMP1423",
@@ -17339,7 +17339,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/staggeredequal.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/staggeredequal.jpg"
     },
     {
       "id": "IMP1434",
@@ -17637,7 +17637,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/yield.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/yield.jpg"
     },
     {
       "id": "IMP1445",
@@ -17665,7 +17665,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tjunction.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tjunction.jpg"
     },
     {
       "id": "IMP1446",
@@ -17963,7 +17963,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/yequal.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/yequal.jpg"
     },
     {
       "id": "IMP1457",
@@ -18234,7 +18234,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/majorahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/majorahead.jpg"
     },
     {
       "id": "IMP1467",
@@ -18532,7 +18532,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tmajor.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tmajor.jpg"
     },
     {
       "id": "IMP1478",
@@ -18830,7 +18830,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/dualcarriagewayahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/dualcarriagewayahead.jpg"
     },
     {
       "id": "IMP1489",
@@ -19128,7 +19128,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tdualcarriageway.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tdualcarriageway.jpg"
     },
     {
       "id": "IMP1500",
@@ -19426,7 +19426,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/trafficmergeleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/trafficmergeleft.jpg"
     },
     {
       "id": "IMP1511",
@@ -19562,7 +19562,7 @@
       "difficulty": "Intermediate",
       "category": "Safety and your vehicle",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/batterynotcharging.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/batterynotcharging.jpg"
     },
     {
       "id": "IMP1516",
@@ -19590,7 +19590,7 @@
       "difficulty": "Intermediate",
       "category": "Safety and your vehicle",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/highbeam.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/highbeam.jpg"
     },
     {
       "id": "IMP1517",
@@ -19618,7 +19618,7 @@
       "difficulty": "Intermediate",
       "category": "Safety and your vehicle",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/lowoillevel.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/lowoillevel.jpg"
     },
     {
       "id": "IMP1518",
@@ -19646,7 +19646,7 @@
       "difficulty": "Intermediate",
       "category": "Safety and your vehicle",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/directionalindicator.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/directionalindicator.jpg"
     },
     {
       "id": "IMP1519",
@@ -19728,7 +19728,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/mergingdiverging.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/mergingdiverging.jpg"
     },
     {
       "id": "IMP1522",
@@ -20026,7 +20026,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roundaboutahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roundaboutahead.jpg"
     },
     {
       "id": "IMP1533",
@@ -20054,7 +20054,7 @@
       "difficulty": "Intermediate",
       "category": "Safety and your vehicle",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/revcounter.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/revcounter.jpg"
     },
     {
       "id": "IMP1534",
@@ -20082,7 +20082,7 @@
       "difficulty": "Intermediate",
       "category": "Safety and your vehicle",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/revcounter.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/revcounter.jpg"
     },
     {
       "id": "IMP1535",
@@ -20299,7 +20299,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/miniroundaboutahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/miniroundaboutahead.jpg"
     },
     {
       "id": "IMP1543",
@@ -20597,7 +20597,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/straightahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/straightahead.jpg"
     },
     {
       "id": "IMP1554",
@@ -20625,7 +20625,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/dangerouscorner.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/dangerouscorner.jpg"
     },
     {
       "id": "IMP1555",
@@ -20923,7 +20923,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/dangerousbend.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/dangerousbend.jpg"
     },
     {
       "id": "IMP1566",
@@ -21221,7 +21221,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/seriesdangerouscorners.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/seriesdangerouscorners.jpg"
     },
     {
       "id": "IMP1577",
@@ -21519,7 +21519,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/seriesdangerousbends.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/seriesdangerousbends.jpg"
     },
     {
       "id": "IMP1588",
@@ -21817,7 +21817,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharpchangeright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharpchangeright.jpg"
     },
     {
       "id": "IMP1599",
@@ -22115,7 +22115,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roadnarrowleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roadnarrowleft.jpg"
     },
     {
       "id": "IMP1610",
@@ -22413,7 +22413,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roadnarrow.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roadnarrow.jpg"
     },
     {
       "id": "IMP1621",
@@ -22711,7 +22711,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roaddivides.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/roaddivides.jpg"
     },
     {
       "id": "IMP1632",
@@ -22874,7 +22874,7 @@
       "difficulty": "Intermediate",
       "category": "Motorway rules",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/focuscrosswinds.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/focuscrosswinds.jpg"
     },
     {
       "id": "IMP1638",
@@ -23010,7 +23010,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carriagewayends.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carriagewayends.jpg"
     },
     {
       "id": "IMP1643",
@@ -23308,7 +23308,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/twowaytraffic.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/twowaytraffic.jpg"
     },
     {
       "id": "IMP1654",
@@ -23606,7 +23606,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/turnleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/turnleft.jpg"
     },
     {
       "id": "IMP1665",
@@ -23634,7 +23634,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharpdescent.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharpdescent.jpg"
     },
     {
       "id": "IMP1666",
@@ -23932,7 +23932,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharpascent.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharpascent.jpg"
     },
     {
       "id": "IMP1677",
@@ -24230,7 +24230,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/clearing.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/clearing.jpg"
     },
     {
       "id": "IMP1688",
@@ -24528,7 +24528,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/overheadcables.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/overheadcables.jpg"
     },
     {
       "id": "IMP1699",
@@ -24826,7 +24826,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/unguardedlevelcrossing.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/unguardedlevelcrossing.jpg"
     },
     {
       "id": "IMP1710",
@@ -25070,7 +25070,7 @@
       "difficulty": "Intermediate",
       "category": "Rules of the road",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/faultbrakingsystem.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/faultbrakingsystem.jpg"
     },
     {
       "id": "IMP1719",
@@ -25125,7 +25125,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/guardedlevelcrossing.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/guardedlevelcrossing.jpg"
     },
     {
       "id": "IMP1721",
@@ -25423,7 +25423,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/railway.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/railway.jpg"
     },
     {
       "id": "IMP1732",
@@ -25721,7 +25721,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stopredlights.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/stopredlights.jpg"
     },
     {
       "id": "IMP1743",
@@ -26019,7 +26019,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/automaticlevelcrossing.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/automaticlevelcrossing.jpg"
     },
     {
       "id": "IMP1754",
@@ -26317,7 +26317,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharprise.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharprise.jpg"
     },
     {
       "id": "IMP1765",
@@ -26615,7 +26615,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/turnright.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/turnright.jpg"
     },
     {
       "id": "IMP1776",
@@ -26643,7 +26643,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharpdepression.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sharpdepression.jpg"
     },
     {
       "id": "IMP1777",
@@ -26941,7 +26941,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/seriesofbumps.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/seriesofbumps.jpg"
     },
     {
       "id": "IMP1788",
@@ -27077,7 +27077,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
     },
     {
       "id": "IMP1793",
@@ -27105,7 +27105,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
     },
     {
       "id": "IMP1794",
@@ -27133,7 +27133,7 @@
       "difficulty": "Intermediate",
       "category": "Alertness",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction1.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carjunction1.jpg"
     },
     {
       "id": "IMP1795",
@@ -27161,7 +27161,7 @@
       "difficulty": "Intermediate",
       "category": "Other types of vehicle",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation37.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/carsituation37.jpg"
     },
     {
       "id": "IMP1796",
@@ -27216,7 +27216,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/slippery.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/slippery.jpg"
     },
     {
       "id": "IMP1798",
@@ -27352,7 +27352,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/solidwhite.jpg"
     },
     {
       "id": "IMP1803",
@@ -27488,7 +27488,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/crossroads.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/crossroads.jpg"
     },
     {
       "id": "IMP1808",
@@ -27516,7 +27516,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/unprotectedwater.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/unprotectedwater.jpg"
     },
     {
       "id": "IMP1809",
@@ -27544,7 +27544,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/coin-basket.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/coin-basket.jpg"
     },
     {
       "id": "IMP1810",
@@ -27572,7 +27572,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/etoll.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/etoll.jpg"
     },
     {
       "id": "IMP1811",
@@ -27600,7 +27600,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/motorwayahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/motorwayahead.jpg"
     },
     {
       "id": "IMP1812",
@@ -27817,7 +27817,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/trafficsignal.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/trafficsignal.jpg"
     },
     {
       "id": "IMP1820",
@@ -28088,7 +28088,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/schoolahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/schoolahead.jpg"
     },
     {
       "id": "IMP1830",
@@ -28386,7 +28386,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/schoolcrossingahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/schoolcrossingahead.jpg"
     },
     {
       "id": "IMP1841",
@@ -28684,7 +28684,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/bewarechildren.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/bewarechildren.jpg"
     },
     {
       "id": "IMP1852",
@@ -28982,7 +28982,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/horses.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/horses.jpg"
     },
     {
       "id": "IMP1863",
@@ -29280,7 +29280,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/cattle.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/cattle.jpg"
     },
     {
       "id": "IMP1874",
@@ -29443,7 +29443,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/turnleftahead.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/turnleftahead.jpg"
     },
     {
       "id": "IMP1880",
@@ -29471,7 +29471,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sheep.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/sheep.jpg"
     },
     {
       "id": "IMP1881",
@@ -29499,7 +29499,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/deer.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/deer.jpg"
     },
     {
       "id": "IMP1882",
@@ -29527,7 +29527,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/crosswinds.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/crosswinds.jpg"
     },
     {
       "id": "IMP1883",
@@ -29555,7 +29555,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pedestriancrossing.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/pedestriancrossing.jpg"
     },
     {
       "id": "IMP1884",
@@ -29583,7 +29583,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tunnel.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tunnel.jpg"
     },
     {
       "id": "IMP1885",
@@ -29611,7 +29611,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/fallingrocks.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/fallingrocks.jpg"
     },
     {
       "id": "IMP1886",
@@ -29639,7 +29639,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/lowflyingaircraft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/lowflyingaircraft.jpg"
     },
     {
       "id": "IMP1887",
@@ -29667,7 +29667,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/driveonleft.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/driveonleft.jpg"
     },
     {
       "id": "IMP1888",
@@ -29695,7 +29695,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramway.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramway.jpg"
     },
     {
       "id": "IMP1889",
@@ -29723,7 +29723,7 @@
       "difficulty": "Intermediate",
       "category": "Road and traffic signs",
       "time_sec": 45,
-      "imageUrl": "http://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramwaycrossing.jpg"
+      "imageUrl": "https://d1fohtyzq6kn2t.cloudfront.net/img/quiz-img/tramwaycrossing.jpg"
     }
   ]
 }

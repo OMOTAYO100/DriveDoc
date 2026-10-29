@@ -1,7 +1,7 @@
 import { FileText } from 'lucide-react';
 import DocumentCard from './DocumentCard';
 
-export default function DocumentsList({ documents, onDelete, onAddDocument }) {
+export default function DocumentsList({ documents, onDelete, onEdit, onShowRenewal, onAddDocument }) {
   if (!documents || !Array.isArray(documents)) {
     return null;
   }
@@ -33,7 +33,13 @@ export default function DocumentsList({ documents, onDelete, onAddDocument }) {
       </div>
       <div className="divide-y divide-gray-200">
         {documents.map((doc) => (
-          <DocumentCard key={doc._id} document={doc} onDelete={onDelete} />
+          <DocumentCard
+            key={doc._id}
+            document={doc}
+            onDelete={onDelete}
+            onEdit={onEdit}
+            onShowRenewal={onShowRenewal}
+          />
         ))}
       </div>
     </div>

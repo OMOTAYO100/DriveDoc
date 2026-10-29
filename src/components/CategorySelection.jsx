@@ -2,9 +2,8 @@ import React from "react";
 import { CATEGORIES } from "../utils/categoryMapping";
 import { CheckCircle2, Circle } from "lucide-react";
 
-export default function CategorySelection({ progress, selected, onToggle, onSelectAll, onStart }) {
+export default function CategorySelection({ progress, selected, onToggle, onSelectAll, onStart, onResetProgress }) {
   const totalQuestions = Object.values(progress).reduce((acc, curr) => acc + curr.total, 0);
-  const totalSelected = selected.length === CATEGORIES.length ? "All" : selected.length;
 
   return (
     <div className="max-w-3xl mx-auto pb-20">
@@ -13,6 +12,9 @@ export default function CategorySelection({ progress, selected, onToggle, onSele
             <div>
                  <h2 className="text-xl font-bold text-gray-900">Practise Revision Questions</h2>
                  <p className="text-sm text-gray-500">Select categories to start practicing</p>
+                 {onResetProgress && (
+                   <button onClick={onResetProgress} className="mt-1 text-xs text-gray-400 underline transition hover:text-gray-600 cursor-pointer">Reset my progress</button>
+                 )}
             </div>
             <button
             onClick={onStart}
@@ -54,7 +56,7 @@ export default function CategorySelection({ progress, selected, onToggle, onSele
 
         {CATEGORIES.map((cat) => {
           const stats = progress[cat.label] || { total: 0, answered: 0, correct: 0 };
-          const percent = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
+          const percent = stats.answered > 0 ? Math.round((stats.correct / stats.answered) * 100) : 0;
           const isSelected = selected.includes(cat.label);
           const Icon = cat.icon;
 
