@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   MapPin,
   Search,
@@ -22,7 +23,9 @@ const ATTRIBUTION = {
   osm: 'Results from OpenStreetMap contributors',
 };
 
-export default function SchoolsPage({ onBack }) {
+export default function SchoolsPage() {
+  const navigate = useNavigate();
+  const onBack = () => navigate("/dashboard");
   const [schools, setSchools] = useState(null);
   const [provider, setProvider] = useState(null);
   const [place, setPlace] = useState('');

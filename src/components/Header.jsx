@@ -1,5 +1,6 @@
 import { Plus, Menu, X, Bell, BellOff, UserCog } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * Defined at module scope, not inside Header. A component created during
@@ -9,11 +10,7 @@ import { useState } from "react";
 function ActionButtons({
   className = "",
   onAction,
-  onFindSchool,
-  onStartTest,
   onToggleNotifications,
-  onAddDocument,
-  onOpenAccount,
   onLogout,
   notificationsEnabled,
   notificationsDenied,
@@ -27,19 +24,21 @@ function ActionButtons({
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <button
-        onClick={() => handleClick(onFindSchool)}
-        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 transition hover:bg-gray-50 sm:w-auto cursor-pointer"
+      <Link
+        to="/schools"
+        onClick={onAction}
+        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-center font-medium text-gray-700 transition hover:bg-gray-50 sm:w-auto"
       >
         Find a School
-      </button>
+      </Link>
 
-      <button
-        onClick={() => handleClick(onStartTest)}
-        className="w-full rounded-lg border border-indigo-700 bg-indigo-600 px-4 py-2 text-white transition hover:bg-indigo-700 sm:w-auto cursor-pointer"
+      <Link
+        to="/practice"
+        onClick={onAction}
+        className="w-full rounded-lg border border-indigo-700 bg-indigo-600 px-4 py-2 text-center text-white transition hover:bg-indigo-700 sm:w-auto"
       >
         Take Theory Test
-      </button>
+      </Link>
 
       <button
         onClick={() => handleClick(onToggleNotifications)}
@@ -64,22 +63,24 @@ function ActionButtons({
         {notificationsEnabled ? "Reminders on" : "Reminders off"}
       </button>
 
-      <button
-        onClick={() => handleClick(onAddDocument)}
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700 sm:w-auto cursor-pointer"
+      <Link
+        to="/dashboard?add=1"
+        onClick={onAction}
+        className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700 sm:w-auto"
       >
         <Plus className="h-4 w-4" aria-hidden="true" />
         Add Document
-      </button>
+      </Link>
 
-      <button
-        onClick={() => handleClick(onOpenAccount)}
+      <Link
+        to="/account"
+        onClick={onAction}
         title="Account settings"
-        className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 font-medium text-gray-700 transition hover:bg-gray-50 sm:w-auto cursor-pointer"
+        className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2 font-medium text-gray-700 transition hover:bg-gray-50 sm:w-auto"
       >
         <UserCog className="h-4 w-4" aria-hidden="true" />
         <span className="sm:hidden">Account</span>
-      </button>
+      </Link>
 
       <button
         onClick={() => handleClick(onLogout)}
@@ -92,25 +93,17 @@ function ActionButtons({
 }
 
 export default function Header({
-  onAddDocument,
   notificationsEnabled,
   notificationsDenied,
   onToggleNotifications,
-  onStartTest,
-  onFindSchool,
-  onOpenAccount,
   onLogout,
   user,
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const actionProps = {
-    onFindSchool,
-    onStartTest,
-    onToggleNotifications,
-    onAddDocument,
-    onOpenAccount,
-    onLogout,
+        onToggleNotifications,
+        onLogout,
     notificationsEnabled,
     notificationsDenied,
   };
@@ -120,9 +113,9 @@ export default function Header({
       <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <Link to="/dashboard" className="text-2xl font-bold text-gray-900">
               Drive<span className="text-blue-600">Doc</span>
-            </h1>
+            </Link>
             <p className="text-sm text-gray-600">
               {user?.fullName
                 ? `Welcome back, ${user.fullName.split(" ")[0]}!`

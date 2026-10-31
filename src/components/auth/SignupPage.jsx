@@ -1,10 +1,20 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/auth';
 import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin } from 'lucide-react';
 import { GoogleLogin } from '@react-oauth/google';
 import { ALL_COUNTRIES } from '../../utils/countryData';
 import { api } from '../../services/api';
 
-export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, onShowTerms }) {
+export default function SignupPage() {
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+
+  const onSignup = (data) => {
+    signIn(data);
+    navigate("/dashboard", { replace: true });
+  };
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -295,21 +305,13 @@ export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, o
                 />
                 <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
                   I agree to the{' '}
-                  <button
-                    onClick={onShowTerms}
-                    type="button"
-                    className="font-medium text-blue-600 transition hover:text-blue-700 cursor-pointer"
-                  >
+                  <Link to="/terms" className="font-medium text-blue-600 transition hover:text-blue-700">
                     Terms of Service
-                  </button>{' '}
+                  </Link>{' '}
                   and{' '}
-                  <button
-                    onClick={onShowPrivacy}
-                    type="button"
-                    className="font-medium text-blue-600 transition hover:text-blue-700 cursor-pointer"
-                  >
+                  <Link to="/privacy" className="font-medium text-blue-600 transition hover:text-blue-700">
                     Privacy Policy
-                  </button>
+                  </Link>
                 </label>
               </div>
               {errors.terms && <p className="mt-1 text-sm text-red-500">{errors.terms}</p>}
@@ -351,12 +353,9 @@ export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, o
           {/* Login Link */}
           <p className="mt-6 text-center text-sm text-gray-600">
             Already have an account?{' '}
-            <button
-              onClick={onSwitchToLogin}
-              className="font-semibold text-blue-600 transition hover:text-blue-700 cursor-pointer"
-            >
+            <Link to="/login" className="font-semibold text-blue-600 transition hover:text-blue-700">
               Sign in
-            </button>
+            </Link>
           </p>
         </div>
 
@@ -364,18 +363,12 @@ export default function SignupPage({ onSignup, onSwitchToLogin, onShowPrivacy, o
         <div className="mt-8 text-center text-sm text-gray-500">
           <p>© 2026 DriveDoc. All rights reserved.</p>
           <div className="mt-2 space-x-4">
-            <button
-              onClick={onShowPrivacy}
-              className="underline transition hover:text-blue-600 cursor-pointer"
-            >
+            <Link to="/privacy" className="underline transition hover:text-blue-600">
               Privacy Policy
-            </button>
-            <button
-              onClick={onShowTerms}
-              className="underline transition hover:text-blue-600 cursor-pointer"
-            >
+            </Link>
+            <Link to="/terms" className="underline transition hover:text-blue-600">
               Terms of Service
-            </button>
+            </Link>
           </div>
         </div>
       </div>

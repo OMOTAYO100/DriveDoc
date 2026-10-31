@@ -1,9 +1,23 @@
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../context/auth";
 import { Eye, EyeOff, Mail, Lock, ArrowLeft } from "lucide-react";
 import { GoogleLogin } from "@react-oauth/google";
 import { api } from "../../services/api";
 
-export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, onShowTerms }) {
+export default function LoginPage() {
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  // Where the user was heading before the sign-in detour, so a
+  // notification deep link survives it.
+  const from = location.state?.from?.pathname || "/dashboard";
+
+  const onLogin = (data) => {
+    signIn(data);
+    navigate(from, { replace: true });
+  };
+
   const [mode, setMode] = useState("login"); // 'login' | 'forgot'
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
@@ -280,12 +294,9 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
 
               <p className="mt-6 text-center text-sm text-gray-600">
                 Don't have an account?{" "}
-                <button
-                  onClick={onSwitchToSignup}
-                  className="font-semibold text-blue-600 transition hover:text-blue-700 cursor-pointer"
-                >
+                <Link to="/signup" className="font-semibold text-blue-600 transition hover:text-blue-700">
                   Sign up
-                </button>
+                </Link>
               </p>
             </>
           )}
@@ -294,18 +305,12 @@ export default function LoginPage({ onLogin, onSwitchToSignup, onShowPrivacy, on
         <div className="mt-8 text-center text-sm text-gray-500">
           <p>© 2026 DriveDoc. All rights reserved.</p>
           <div className="mt-2 space-x-4">
-            <button
-              onClick={onShowPrivacy}
-              className="text-xs underline transition hover:text-blue-600 cursor-pointer"
-            >
+            <Link to="/privacy" className="text-xs underline transition hover:text-blue-600">
               Privacy Policy
-            </button>
-            <button
-              onClick={onShowTerms}
-              className="text-xs underline transition hover:text-blue-600 cursor-pointer"
-            >
+            </Link>
+            <Link to="/terms" className="text-xs underline transition hover:text-blue-600">
               Terms of Service
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,9 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import LegalPage from './LegalPage';
 
 const EFFECTIVE_DATE = '7 October 2026';
 const CONTACT = 'support@drivedoc.org';
 
-export default function TermsOfService({ onBack }) {
+export default function TermsOfService() {
+  const navigate = useNavigate();
+  // Works whether the reader came from the landing page, the signup
+  // form or a direct link.
+  const onBack = () => navigate(-1);
+
   return (
     <LegalPage title="Terms of Service" effectiveDate={EFFECTIVE_DATE} onBack={onBack}>
       <section>

@@ -1,7 +1,10 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Shield, Bell, Clock } from "lucide-react";
 
-export default function LandingPage({ onGetStarted, onShowPrivacy, onShowTerms }) {
+export default function LandingPage() {
+  const navigate = useNavigate();
+  const onGetStarted = () => navigate("/login");
   const scrollToFeatures = () => {
     const featuresSection = document.getElementById("how-it-works");
     if (featuresSection) {
@@ -100,18 +103,12 @@ export default function LandingPage({ onGetStarted, onShowPrivacy, onShowTerms }
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-sm">© 2026 DriveDoc. All rights reserved.</p>
           <div className="flex gap-8">
-            <button 
-              onClick={onShowPrivacy} 
-              className="text-sm text-gray-500 hover:text-blue-600 cursor-pointer bg-transparent border-none p-0"
-            >
+            <Link to="/privacy" className="text-sm text-gray-500 hover:text-blue-600">
               Privacy Policy
-            </button>
-            <button 
-              onClick={onShowTerms} 
-              className="text-sm text-gray-500 hover:text-blue-600 cursor-pointer bg-transparent border-none p-0"
-            >
+            </Link>
+            <Link to="/terms" className="text-sm text-gray-500 hover:text-blue-600">
               Terms of Service
-            </button>
+            </Link>
           </div>
         </div>
       </footer>

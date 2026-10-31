@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import QuestionCard from "./QuestionCard";
 import ResultDisplay from "./ResultDisplay";
 import CategorySelection from "./CategorySelection";
@@ -62,7 +63,14 @@ const loadProgress = () => {
   }
 };
 
-export default function TestContainer({ initialCategory, onExit }) {
+export default function TestContainer() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  // /practice?category=Road%20and%20traffic%20signs starts that category
+  // directly; /practice alone opens the category picker.
+  const initialCategory = searchParams.get("category");
+  const onExit = () => navigate("/dashboard");
+
   // A category chosen on the dashboard starts its test immediately, decided
   // here rather than in an effect that would setState during the first render.
   const [activeQuestions, setActiveQuestions] = useState(() =>

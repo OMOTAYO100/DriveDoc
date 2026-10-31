@@ -1,8 +1,21 @@
 import { useState } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useAuth } from "../../context/auth";
 import { Eye, EyeOff, Lock, CheckCircle2 } from "lucide-react";
 import { api } from "../../services/api";
 
-export default function ResetPasswordPage({ token, onReset, onBackToLogin }) {
+export default function ResetPasswordPage() {
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  // The emailed link lands here as /reset-password?token=...
+  const token = searchParams.get("token") || "";
+
+  const onReset = (data) => {
+    signIn(data);
+    navigate("/dashboard", { replace: true });
+  };
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -125,12 +138,9 @@ export default function ResetPasswordPage({ token, onReset, onBackToLogin }) {
           </p>
 
           <p className="mt-4 text-center text-sm text-gray-600">
-            <button
-              onClick={onBackToLogin}
-              className="font-semibold text-blue-600 transition hover:text-blue-700 cursor-pointer"
-            >
+            <Link to="/login" className="font-semibold text-blue-600 transition hover:text-blue-700">
               Back to sign in
-            </button>
+            </Link>
           </p>
         </div>
       </div>

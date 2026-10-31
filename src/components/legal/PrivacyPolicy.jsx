@@ -1,9 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import LegalPage from './LegalPage';
 
 const EFFECTIVE_DATE = '7 October 2026';
 const CONTACT = 'privacy@drivedoc.org';
 
-export default function PrivacyPolicy({ onBack }) {
+export default function PrivacyPolicy() {
+  const navigate = useNavigate();
+  // Works whether the reader came from the landing page, the signup
+  // form or a direct link.
+  const onBack = () => navigate(-1);
+
   return (
     <LegalPage title="Privacy Policy" effectiveDate={EFFECTIVE_DATE} onBack={onBack}>
       <section>

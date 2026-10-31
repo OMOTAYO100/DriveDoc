@@ -1,8 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./index.css";
 import App from "./App.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 import { resubscribeIfEnabled } from "./services/pushService";
 
 const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
@@ -16,16 +18,18 @@ if (import.meta.env.DEV) {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <GoogleOAuthProvider clientId={googleClientId || "missing-client-id"}>
-      <App />
-    </GoogleOAuthProvider>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <GoogleOAuthProvider clientId={googleClientId || "missing-client-id"}>
+          <App />
+        </GoogleOAuthProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
   </StrictMode>
 );
 
 // Refresh the push subscription on load, but only for users who have actually
-// turned notifications on. The previous version called registerPush() for
-// anyone holding a token, which prompted for permission without a user gesture
-// and re-enabled a subscription the user had just opted out of.
+// turned notifications on. Never prompts.
 if (localStorage.getItem("token") && localStorage.getItem("notifications_enabled") === "true") {
   resubscribeIfEnabled().catch((err) =>
     console.warn("Could not refresh push subscription:", err.message)
