@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams, Link } from "react-router-dom";
 import StatsGrid from "../components/StatsGrid";
 import DocumentsList from "../components/DocumentsList";
 import AddDocumentModal from "../components/AddDocumentModal";
@@ -18,8 +18,25 @@ export default function Dashboard() {
 
   const [documents, setDocuments] = useState([]);
   const [documentsError, setDocumentsError] = useState("");
-  const [isAddOpen, setIsAddOpen] = useState(false);
-  const [editing, setEditing] = useState(null);
+
+  // The add/edit form is driven by the URL, not local state: the header's
+  // "Add Document" button lives outside this component and can only reach it
+  // by navigating. It also makes the form linkable and lets the back button
+  // close it, which is what phone users expect.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const isAdding = searchParams.get("add") === "1";
+  const editingId = searchParams.get("edit");
+  const editing = editingId ? documents.find((d) => d._id === editingId) || null : null;
+  const isFormOpen = isAdding || Boolean(editing);
+
+  const openAdd = () => setSearchParams({ add: "1" });
+  const openEdit = (doc) => setSearchParams({ edit: doc._id });
+  const closeForm = () => {
+    const next = new URLSearchParams(searchParams);
+    next.delete("add");
+    next.delete("edit");
+    setSearchParams(next, { replace: true });
+  };
 
   const fetchDocuments = useCallback(async () => {
     try {
@@ -82,8 +99,7 @@ export default function Dashboard() {
       setDocuments((prev) => [res.document, ...prev]);
       notify("Document added.", "success");
     }
-    setIsAddOpen(false);
-    setEditing(null);
+    closeForm();
   };
 
   const handleDelete = async (id) => {
@@ -142,15 +158,9 @@ export default function Dashboard() {
           <DocumentsList
             documents={documents}
             onDelete={handleDelete}
-            onEdit={(doc) => {
-              setEditing(doc);
-              setIsAddOpen(true);
-            }}
+            onEdit={openEdit}
             onShowRenewal={(doc) => navigate(`/documents/${doc._id}`)}
-            onAddDocument={() => {
-              setEditing(null);
-              setIsAddOpen(true);
-            }}
+            onAddDocument={openAdd}
           />
         </div>
 
@@ -187,14 +197,14 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {isAddOpen && (
+      {isFormOpen && (
         <AddDocumentModal
-          isOpen={isAddOpen}
+          // Remount when switching between add and a different document, so
+          // the form re-seeds from the right record.
+          key={editingId || "add"}
+          isOpen
           document={editing}
-          onClose={() => {
-            setIsAddOpen(false);
-            setEditing(null);
-          }}
+          onClose={closeForm}
           onSave={handleSave}
         />
       )}
